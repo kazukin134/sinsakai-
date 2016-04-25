@@ -1,0 +1,747 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenAL入門</title>
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="openal.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">OpenAL入門</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. デジタルでの音とは</a></li>
+<li><a href="#orgheadline2">2. OpenALとは</a></li>
+<li><a href="#orgheadline3">3. OpenALをざっくり紹介</a></li>
+<li><a href="#orgheadline4">4. 初期化と後始末</a></li>
+<li><a href="#orgheadline5">5. 音を鳴らす</a></li>
+<li><a href="#orgheadline6">6. 再生時の細かな指定</a></li>
+<li><a href="#orgheadline7">7. 立体音響</a></li>
+<li><a href="#orgheadline8">8. ドップラー効果</a></li>
+<li><a href="#orgheadline9">9. キューイング</a></li>
+<li><a href="#orgheadline10">10. 音声入力</a></li>
+<li><a href="#orgheadline11">11. もっと詳しく</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> デジタルでの音とは</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+現実世界では、音は空気の振動と捉えられています。ではパソコンやゲーム機で扱う <b>音</b> は、どう表されるのでしょうか。デジタルの世界では連続した値を扱えません。なので、音の振動を表す波形を時間軸で分割して数値に直します。この時の分割数を <b>サンプリング数</b> といいます。CDでは波形を１秒間に44100分割して数値に直しています。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_01.png" alt="ex_01.png" />
+</p>
+<p><span class="figure-number">&#22259;1: </span> 音の波形を分割した様子</p>
+</div>
+
+<p>
+このとき、上下の振幅が <b>音量</b> を表しており、「量子化ビットが16ビット」というと、波形データの情報が１サンプルあたり16ビットで表されており、+32768~-32767の幅の振幅で波形をデジタル化しているという意味になります。
+</p>
+
+<p>
+パソコンの世界ではWAVやMP3にOgg Vorbisなど、様々なサウンド形式が存在しますが、最終的には音の波形データ(リニアPCM形式)にがハードウェアに流し込まれて音が再生されるという仕組みになっています。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> OpenALとは</h2>
+<div class="outline-text-2" id="text-2">
+
+<div class="figure">
+<p><img src="images/ex_04.png" alt="ex_04.png" />
+</p>
+<p><span class="figure-number">&#22259;2: </span> OpenALの概略 ©かきふらい・芳文社/桜高軽音部</p>
+</div>
+
+
+<p>
+「OpenAL(オープンエーエル)」とはプログラムからサウンドを扱う為の仕組みです。プログラマがハードの違いを意識する事無くサウンドを扱えるように設計されており、Windows、OSX、iPhone、Android、PlayStation3、Wiiなど、さまざまな機器に移植されています。
+</p>
+
+<ul class="org-ul">
+<li><b>長所</b>
+
+<ul class="org-ul">
+<li>サウンドに関する専門的な知識が無くても利用出来る。</li>
+<li>OpenALが提供されている環境であれば同じように音が鳴る。</li>
+<li>三次元空間内の音の定位やドップラー効果をOpenALが計算してくれる。</li>
+<li>プログラムから発音を命じてからの遅れが非常に少ない。</li>
+</ul></li>
+
+<li><b>短所</b>
+
+<ul class="org-ul">
+<li>AIFF形式とかWAV形式とかMP3形式とか、サウンドのフォーマットについての規定が無い。ファイルから読み込んだデータを自分でリニアPCM形式に変換しなければならない。</li>
+<li>iPhoneやAndriodは圧縮形式のサウンド(AAC、MP3、Ogg Vorbis)をハードウェアでサポートしているが、それが使えない。</li>
+<li>MIDIを扱えない。</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> OpenALをざっくり紹介</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+プログラムで音を扱うOpenALですが、そんなに複雑なつくりではありません。大きく分けると <b>５つの仕組み</b> でできています。
+</p>
+
+<ul class="org-ul">
+<li><p>
+<b>デバイス</b>
+</p>
+
+<p>
+デバイスはプログラムから指示を出すサウンドハードウェアを表します。これはライブ会場に該当する役です。パソコンに繋がった複数のハードウェアから「どの機器を使うのか」を選ぶ時に利用します。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_05.png" alt="ex_05.png" />
+</p>
+<p><span class="figure-number">&#22259;3: </span> デバイスはライブ会場を指し示す</p>
+</div></li>
+
+<li><p>
+<b>コンテキスト</b>
+</p>
+
+<p>
+コンテキストは発音された音を１つにまとめる仕組みを表します。これはバンドに該当する役です。時に複数のコンテキストを用意して複雑な音響効果をミックスします。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_06.png" alt="ex_06.png" />
+</p>
+<p><span class="figure-number">&#22259;4: </span> コンテキストはバンドを指し示す</p>
+</div></li>
+
+<li><p>
+<b>バッファ</b>
+</p>
+
+<p>
+バッファは波形データを格納する仕組みです。これは楽器に該当する役です。様々な種類の波形を格納するために、バッファをたくさん用意することとなります。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_08.png" alt="ex_08.png" />
+</p>
+<p><span class="figure-number">&#22259;5: </span> バッファは楽器を指し示す</p>
+</div></li>
+
+<li><p>
+<b>ソース</b>
+</p>
+
+<p>
+ソースはバッファに格納された波形を発音する仕組みです。これは奏者に該当する役です。同時にたくさんの音を鳴らしたい場合にはたくさんのソースを用意します。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_07.png" alt="ex_07.png" />
+</p>
+<p><span class="figure-number">&#22259;6: </span> ソースは奏者を指し示す</p>
+</div></li>
+
+<li><p>
+<b>リスナー</b>
+</p>
+
+<p>
+リスナーはソースからの発音を聴く位置を表します。これは客に該当する役です。OpenALでは <b>立体音響</b> の仕組みがあり、そこで大活躍します。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ex_09.png" alt="ex_09.png" />
+</p>
+<p><span class="figure-number">&#22259;7: </span> リスナーはライブ客の一人を指し示す</p>
+</div></li>
+</ul>
+
+<p>
+OpenALは、以上５つの仕組みの使い方を覚えれば、OSごとの違いを気にする事無く音を鳴らす事ができるようになります。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> 初期化と後始末</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+<b>５つの仕組み</b> のうち、 <b>デバイス</b> と <b>コンテキスト</b> を操作します。以下のサンプルコードではシステム既定のデバイスを使うように初期化しています。ゲームの実装であれば、これでほぼ事足ります。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/al.h&gt;</span>         <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#12504;&#12483;&#12480;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/alc.h&gt;</span>        <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#12504;&#12483;&#12480;</span>
+
+
+<span style="color: #3f6e74;">int</span> <span style="color: #0000ff;">main</span>() {
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#21021;&#26399;&#21270;</span>
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12364;OS&#27161;&#28310;&#12458;&#12540;&#12487;&#12451;&#12458;&#12487;&#12496;&#12452;&#12473;&#12434;&#20351;&#12358;&#12424;&#12358;&#25351;&#31034;</span>
+  <span style="color: #3f6e74;">ALCdevice</span>* <span style="color: #a0522d;">device</span> = alcOpenDevice(<span style="color: #a020f0;">nullptr</span>);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12458;&#12540;&#12487;&#12451;&#12458;&#12434;&#12524;&#12531;&#12480;&#12522;&#12531;&#12464;&#12377;&#12427;&#12383;&#12417;&#12398;&#12467;&#12531;&#12486;&#12461;&#12473;&#12488;&#12434;&#29983;&#25104;</span>
+  <span style="color: #3f6e74;">ALCcontext</span>* <span style="color: #a0522d;">context</span> = alcCreateContext(device, <span style="color: #a020f0;">nullptr</span>);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#29983;&#25104;&#12375;&#12383;&#12467;&#12531;&#12486;&#12461;&#12473;&#12488;&#12434;&#25805;&#20316;&#23550;&#35937;&#12395;&#12377;&#12427;</span>
+  alcMakeContextCurrent(context);
+
+  <span style="color: #007400;">//</span>
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#33394;&#12293;&#12392;&#25805;&#20316;</span>
+  <span style="color: #007400;">//</span>
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#24460;&#22987;&#26411;</span>
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#25805;&#20316;&#23550;&#35937;&#12398;&#12467;&#12531;&#12486;&#12461;&#12473;&#12488;&#12434;&#35299;&#38500;</span>
+  alcMakeContextCurrent(<span style="color: #a020f0;">nullptr</span>);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12467;&#12531;&#12486;&#12461;&#12473;&#12488;&#12434;&#30772;&#26820;</span>
+  alcDestroyContext(context);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12487;&#12496;&#12452;&#12473;&#12434;&#38281;&#12376;&#12427;</span>
+  alcCloseDevice(device);
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> 音を鳴らす</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+波形を用意して音を鳴らす場合、以下のようなコードになります。OpenALでは波形データのフォーマットに関する既定がないので、WAV形式やMP3形式のデータを扱う場合、自前でリニアPCMデータを取り出す必要があります。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">Windows&#12391;&#12399;&#12356;&#12398;&#19968;&#30058;&#12395;&#12371;&#12398;&#23450;&#32681;&#12364;&#24517;&#35201;</span>
+<span style="color: #007400;">//   </span><span style="color: #007400;">min&#12392;max&#12364;&#12510;&#12463;&#12525;&#23450;&#32681;&#12391;&#20351;&#12431;&#12428;&#12390;&#12362;&#12426;&#12289;</span>
+<span style="color: #007400;">//   </span><span style="color: #007400;">std::min&#12420;std::max&#12364;&#20351;&#12360;&#12394;&#12356;</span>
+<span style="color: #483d8b;">#define</span> <span style="color: #a0522d;">NOMINMAX</span>
+
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/al.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/alc.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;cmath&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;limits&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;thread&gt;</span>
+
+
+<span style="color: #3f6e74;">int</span> <span style="color: #0000ff;">main</span>() {
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#21021;&#26399;&#21270;</span>
+  <span style="color: #3f6e74;">ALCdevice</span>*  <span style="color: #a0522d;">device</span>  = alcOpenDevice(<span style="color: #a020f0;">nullptr</span>);
+  <span style="color: #3f6e74;">ALCcontext</span>* <span style="color: #a0522d;">context</span> = alcCreateContext(device, <span style="color: #a020f0;">nullptr</span>);
+  alcMakeContextCurrent(context);
+
+  
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#19968;&#31186;&#12406;&#12435;&#12398;&#12469;&#12452;&#12531;&#27874;(440Hz)&#12434;&#29983;&#25104;</span>
+  <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">pcm_freq</span> = 44100;
+  <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">float</span>  <span style="color: #a0522d;">key_freq</span> = 440.0;
+
+  <span style="color: #3f6e74;">ALshort</span> <span style="color: #a0522d;">pcm_data</span>[pcm_freq];
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">i</span> = 0; i &lt; pcm_freq; ++i) {
+    pcm_data[i] = <span style="color: #008b8b;">std</span>::sin(key_freq * M_PI * 2.0 * i / pcm_freq) 
+                * <span style="color: #008b8b;">std</span>::<span style="color: #008b8b;">numeric_limits</span>&lt;<span style="color: #3f6e74;">ALshort</span>&gt;::max();
+  }
+
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12398;&#29983;&#25104;</span>
+  <span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">buffer_id</span>;
+  alGenBuffers(1, &amp;buffer_id);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#29992;&#24847;&#12375;&#12383;&#12469;&#12452;&#12531;&#27874;&#12434;&#12496;&#12483;&#12501;&#12449;&#12395;&#12467;&#12500;&#12540;</span>
+  alBufferData(buffer_id,
+         AL_FORMAT_MONO16,                    <span style="color: #007400;">// </span><span style="color: #007400;">&#12514;&#12494;&#12521;&#12523;&#12289;&#37327;&#23376;&#21270;&#12499;&#12483;&#12488;&#25968;:16</span>
+         &amp;pcm_data[0],                        <span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12491;&#12450;PCM&#24418;&#24335;&#12487;&#12540;&#12479;&#12364;&#26684;&#32013;&#12373;&#12428;&#12390;&#12356;&#12427;&#22580;&#25152;</span>
+         <span style="color: #3f6e74;">pcm_freq</span> * <span style="color: #a020f0;">sizeof</span>(ALshort),          <span style="color: #007400;">// </span><span style="color: #007400;">&#12469;&#12452;&#12474;(&#12496;&#12452;&#12488;&#25968;)</span>
+         pcm_freq);                           <span style="color: #007400;">// </span><span style="color: #007400;">&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;</span>
+
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#29983;&#25104;</span>
+  <span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">source_id</span>;
+  alGenSources(1, &amp;source_id);
+  
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12395;&#20877;&#29983;&#12375;&#12383;&#12356;&#12496;&#12483;&#12501;&#12449;&#12434;&#21106;&#12426;&#24403;&#12390;&#12427;</span>
+  alSourcei(source_id, AL_BUFFER, buffer_id);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#20877;&#29983;&#38283;&#22987;</span>
+  alSourcePlay(source_id);  
+
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">2&#31186;&#24453;&#12388;</span>
+  <span style="color: #008b8b;">std</span>::<span style="color: #008b8b;">this_thread</span>::sleep_for(<span style="color: #008b8b;">std</span>::<span style="color: #008b8b;">chrono</span>::seconds(2));
+
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#30772;&#26820;</span>
+  alDeleteSources(1, &amp;source_id);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12398;&#30772;&#26820;</span>
+  alDeleteBuffers(1, &amp;buffer_id);
+  
+  
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#24460;&#22987;&#26411;</span>
+  alcMakeContextCurrent(<span style="color: #a020f0;">nullptr</span>);
+  alcDestroyContext(context);
+  alcCloseDevice(device);
+}
+</pre>
+</div>
+
+<p>
+１つのバッファを多くのソースに割り当てて鳴らすのも、もちろんできます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12434;&#12414;&#12392;&#12417;&#12390;&#65300;&#12388;&#29983;&#25104;</span>
+<span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">source_id</span>[4];
+alGenSources(4, &amp;source_id[0]);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12434;&#12414;&#12392;&#12417;&#12390;&#65301;&#12388;&#29983;&#25104;</span>
+<span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">buffer_id</span>[5];
+alGenBuffers(5, &amp;buffer_id[0]);
+
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#30772;&#26820;</span>
+alDeleteSources(4, &amp;source_id[0]);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12398;&#30772;&#26820;</span>
+alDeleteBuffers(5, &amp;buffer_id[0]);
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> 再生時の細かな指定</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+ソースに対しては、再生のために各種指示を行えます。以下、よく使うであろう指示です。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#20572;&#27490;</span>
+alSourceStop(source_id);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#19968;&#26178;&#20572;&#27490;(&#12371;&#12398;&#24460;&#12289;&#20877;&#29983;&#12377;&#12427;&#12392;&#32154;&#12365;&#12363;&#12425;&#12395;&#12394;&#12427;)</span>
+alSourcePause(source_id);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#38899;&#37327;&#22793;&#26356;(0~1)</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">gain_value</span> = 0.5;
+alSourcef(source_id, AL_GAIN, gain_value);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#20877;&#29983;&#12500;&#12483;&#12481;&#22793;&#26356;(0~)</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">pitch_value</span> = 0.2;
+alSourcef(source_id, AL_PITCH, putch_value);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12523;&#12540;&#12503;&#20877;&#29983; ON/OFF</span>
+<span style="color: #3f6e74;">ALint</span> <span style="color: #a0522d;">is_looping</span> = AL_TRUE;    <span style="color: #007400;">// </span><span style="color: #007400;">or AL_FALSE</span>
+alSourcei(source_id, AL_LOOPING, is_looping);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#29366;&#24907;&#12434;&#35519;&#12409;&#12427;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">AL_INITIAL  &#26410;&#20877;&#29983;&#29366;&#24907;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">AL_PLAYING  &#20877;&#29983;&#20013;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">AL_PAUSED   &#19968;&#26178;&#20572;&#27490;&#20013;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">AL_STOPPED  &#20572;&#27490;&#20013;</span>
+<span style="color: #3f6e74;">ALint</span> <span style="color: #a0522d;">state</span>;
+alGetSourcei(source_id, AL_SOURCE_STATE, &amp;state);
+<span style="color: #a020f0;">if</span> (state != AL_PLAYING) {
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#20877;&#29983;&#12364;&#27490;&#12414;&#12387;&#12390;&#12356;&#12427;</span>
+}
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#29694;&#22312;&#12398;&#20877;&#29983;&#20301;&#32622;(&#31186;)</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">current_time_sec</span>;
+alGetSourcef(source_id, AL_SEC_OFFSET, &amp;current_time_sec);
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> 立体音響</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+OpenALで立体音響(音の定位を空間座標で定義する)を実現するのは実に簡単です。座標系はOpenGLに準拠。ただし、波形データを <b>モノラル</b> で用意する必要があります。指定する必要があるのは以下の２つ。
+</p>
+
+<ul class="org-ul">
+<li><b>リスナーの位置を指定</b></li>
+<li><b>リスナーの向きを指定</b></li>
+<li><b>ソースの位置を指定</b></li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12473;&#12490;&#12540;&#12398;&#20301;&#32622;&#12434;(1.0, 0.0, 0.0)&#12408;&#31227;&#21205;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12473;&#12490;&#12540;&#12399;&#12467;&#12531;&#12486;&#12461;&#12473;&#12488;&#12372;&#12392;&#12395;&#65297;&#12388;&#12289;&#23384;&#22312;&#12377;&#12427;</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">listener_pos</span>[] = { 1.0, 0.0, 0.0 };
+alListenerfv(AL_POSITION, listener_pos);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12473;&#12490;&#12540;&#12398;&#21521;&#12365;&#12434;at&#12289;up&#12505;&#12463;&#12488;&#12523;&#12391;&#25351;&#23450;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">at&#12505;&#12463;&#12488;&#12523;</span>
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">at_x</span> = 0.0;
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">at_y</span> = 0.0;
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">at_z</span> = 1.0;
+
+<span style="color: #007400;">// </span><span style="color: #007400;">up&#12505;&#12463;&#12488;&#12523;</span>
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">up_x</span> = 0.0;
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">up_y</span> = 1.0;
+<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">up_z</span> = 0.0;
+
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">listener_orientation</span>[] = { at_x, at_y, at_z, up_x, up_y, up_z };
+alListenerfv(AL_ORIENTATION, listener_orientation);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#20301;&#32622;&#12434;(0.0, 0.0, 1.0)&#12408;&#31227;&#21205;</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">source_pos</span>[] = { 0.0, 0.0, 1.0 };
+alSourcefv(source_id, AL_POSITION, source_pos);
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="images/ex_41.png" alt="ex_41.png" />
+</p>
+<p><span class="figure-number">&#22259;8: </span> atベクトルとupベクトルの概略</p>
+</div>
+
+<p>
+ソース再生中にリスナーやソースの位置を変更した場合にも即座に変更が反映されます。距離の単位はアプリ側に任されています。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> ドップラー効果</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+救急車のサイレンの音。近づいてくると高い音になって、離れて行くと低い音になっていきます。これがドップラー効果。OpenALではこの効果もエミュレートしています。ソースとリスナー、それぞれの移動速度を指定するだけで実現できます。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12473;&#12490;&#12540;&#12398;&#31227;&#21205;&#36895;&#24230;&#12434;&#25351;&#23450;</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">listener_velocity</span>[] = { 0.0, 0.0, 1.0 };
+alListenerfv(AL_VELOCITY, listener_velocity);
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#31227;&#21205;&#36895;&#24230;&#12434;&#25351;&#23450;</span>
+<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">source_velocity</span>[] = { 1.0, 0.0, 0.0 };
+alSourcefv(source_id, AL_VELOCITY, source_velocity);
+</pre>
+</div>
+
+<p>
+移動速度の時間や距離の単位の基準はありません。計算用の基準値が与えられていますが(音速 m/sec)、アプリ側で適当な値に設定するのがよさそうです。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12489;&#12483;&#12503;&#12521;&#12540;&#21177;&#26524;&#35336;&#31639;&#12395;&#20351;&#12358;&#22522;&#28310;&#65288;&#27604;&#20363;&#65289;&#36895;&#24230;&#12434;&#22793;&#26356;&#12377;&#12427;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">&#21021;&#26399;&#20516;&#12399;343.3</span>
+<span style="color: #3f6e74;">void</span> <span style="color: #0000ff;">alSpeedOfSound</span>(<span style="color: #3f6e74;">ALfloat</span> <span style="color: #a0522d;">speed</span>);
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">9</span> キューイング</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+再生時間が５分ある波形データをそのままOpenALのバッファに割り当てると、大量のメモリが必要になりますし、初期化の時間も長くなってしまいます。その場合、波形データを少しずつバッファに割り当てながら再生する <b>ストリーミング</b> という手法を採ることになります。
+</p>
+
+<p>
+OpenALの場合 <b>キューイング</b> という仕組みを使ってストリーミング再生を行います。処理の流れはだいたいこんな感じ。
+</p>
+
+<ol class="org-ol">
+<li><b>バッファを複数用意</b></li>
+<li><b>ソースにバッファをキューイング</b></li>
+<li><b>再生開始</b></li>
+<li><b>再生の完了したバッファを再キューイング</b></li>
+<li><b>↑波形データが無くなるまで続ける</b></li>
+</ol>
+
+<p>
+以下がそのサンプルコードです。このコードではあらかじめ作っておいた４つの音程の違うバッファで、順番にキューイングを行っています。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/al.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/alc.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;cmath&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;limits&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;vector&gt;</span>
+
+
+<span style="color: #3f6e74;">int</span> <span style="color: #0000ff;">main</span>() {
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#21021;&#26399;&#21270;</span>
+  <span style="color: #3f6e74;">ALCdevice</span>*  <span style="color: #a0522d;">device</span>  = alcOpenDevice(<span style="color: #a020f0;">nullptr</span>);
+  <span style="color: #3f6e74;">ALCcontext</span>* <span style="color: #a0522d;">context</span> = alcCreateContext(device, <span style="color: #a020f0;">nullptr</span>);
+  alcMakeContextCurrent(context);
+  
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12398;&#29983;&#25104;</span>
+  <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">queue_buffer_num</span> = 4;
+  <span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">buffer_id</span>[queue_buffer_num];
+  alGenBuffers(queue_buffer_num, &amp;buffer_id[0]);
+
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">i</span> = 0; i &lt; queue_buffer_num; ++i) {
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#19968;&#31186;&#12406;&#12435;&#12398;&#12469;&#12452;&#12531;&#27874;&#12434;&#29983;&#25104;</span>
+    <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">pcm_freq</span> = 44100;
+    <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">float</span>  <span style="color: #a0522d;">key_freq</span> = 440.0 * (i + 1);
+
+    <span style="color: #3f6e74;">ALshort</span> <span style="color: #a0522d;">pcm_data</span>[pcm_freq];
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">h</span> = 0; i &lt; pcm_freq; ++i) {
+      pcm_data[h] = <span style="color: #008b8b;">std</span>::sin(key_freq * M_PI * 2.0 * h / pcm_freq) 
+                  * <span style="color: #008b8b;">std</span>::<span style="color: #008b8b;">numeric_limits</span>&lt;<span style="color: #3f6e74;">ALshort</span>&gt;::max();
+    }
+
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#12469;&#12452;&#12531;&#27874;&#12434;&#12496;&#12483;&#12501;&#12449;&#12395;&#12467;&#12500;&#12540;</span>
+    alBufferData(buffer_id[i],
+                 AL_FORMAT_MONO16,                    <span style="color: #007400;">// </span><span style="color: #007400;">&#12473;&#12486;&#12524;&#12458;16bit or &#12514;&#12494;&#12521;&#12523;16bit</span>
+                 &amp;pcm_data[0],                        <span style="color: #007400;">// </span><span style="color: #007400;">&#12522;&#12491;&#12450;PCM&#24418;&#24335;&#12487;&#12540;&#12479;&#12364;&#26684;&#32013;&#12373;&#12428;&#12390;&#12356;&#12427;&#22580;&#25152;</span>
+                 pcm_data.size() * <span style="color: #a020f0;">sizeof</span>(ALshort),   <span style="color: #007400;">// </span><span style="color: #007400;">&#12469;&#12452;&#12474;(&#12496;&#12452;&#12488;&#25968;)</span>
+                 pcm_freq);                           <span style="color: #007400;">// </span><span style="color: #007400;">&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;</span>
+  }
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#29983;&#25104;</span>
+  <span style="color: #3f6e74;">ALuint</span> <span style="color: #a0522d;">source_id</span>;
+  alGenSources(1, &amp;source_id);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12434;&#12461;&#12517;&#12540;&#12452;&#12531;&#12464;</span>
+  alSourceQueueBuffers(source_id, queue_buffer_num, &amp;buffer_id[0]);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#20877;&#29983;&#38283;&#22987;</span>
+  alSourcePlay(source_id);  
+
+
+  <span style="color: #a020f0;">while</span> (1) {
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#20877;&#29983;&#12398;&#32066;&#12431;&#12387;&#12383;&#12496;&#12483;&#12501;&#12449;&#12364;&#12354;&#12427;&#12363;??</span>
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">processed</span>;
+    alGetSourcei(source_id, AL_BUFFERS_PROCESSED, &amp;processed);
+
+    <span style="color: #a020f0;">if</span> (processed &gt; 0) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#20877;&#29983;&#12398;&#32066;&#12431;&#12387;&#12383;&#12496;&#12483;&#12501;&#12449;&#12434;&#20877;&#21033;&#29992;</span>
+      <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">ALuint</span>&gt; <span style="color: #a0522d;">unqueue_buffer_id</span>(processed);
+      alSourceUnqueueBuffers(source_id, processed, &amp;unqueue_buffer_id[0]);
+
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#20877;&#12461;&#12517;&#12540;&#12452;&#12531;&#12464;</span>
+      alSourceQueueBuffers(source_id, processed, &amp;unqueue_buffer_id[0]);
+    }
+  }
+
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12477;&#12540;&#12473;&#12398;&#30772;&#26820;</span>
+  alDeleteSources(1, &amp;source_id);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#12496;&#12483;&#12501;&#12449;&#12398;&#30772;&#26820;</span>
+  alDeleteBuffers(queue_buffer_num, &amp;buffer_id[0]);
+  
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#24460;&#22987;&#26411;</span>
+  alcMakeContextCurrent(<span style="color: #a020f0;">nullptr</span>);
+  alcDestroyContext(context);
+  alcCloseDevice(device);
+}
+</pre>
+</div>
+
+<p>
+MP3やOgg Vorbisでのストリーミングを行う場合、適時キューイングするバッファの内容を書き換えてゆく事になります。なお、OpenALでは再生終了時シグナルやコールバックの仕組みは用意されていませんので、今サンプルのように、自前でソースの状態をポーリングする必要があります。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> 音声入力</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+マイク入力などの音声入力も、OpenALには用意されています。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/al.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;OpenAL/alc.h&gt;</span>
+<span style="color: #483d8b;">#include</span> <span style="color: #C41A16;">&lt;vector&gt;</span>
+
+
+<span style="color: #3f6e74;">int</span> <span style="color: #0000ff;">main</span>() {
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#21021;&#26399;&#21270;</span>
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12364;OS&#27161;&#28310;&#12458;&#12540;&#12487;&#12451;&#12458;&#12487;&#12496;&#12452;&#12473;&#12434;&#20351;&#12358;&#12424;&#12358;&#25351;&#31034;</span>
+  <span style="color: #007400;">// </span><span style="color: #ff0000; font-weight: bold;">FIXME:</span><span style="color: #007400;">OSX&#12289;iOS&#12384;&#12392;&#12371;&#12428;&#12399;&#24517;&#35201;&#12394;&#12356;</span>
+  <span style="color: #3f6e74;">ALCdevice</span>* <span style="color: #a0522d;">device</span> = alcOpenDevice(<span style="color: #a020f0;">nullptr</span>);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#37682;&#38899;&#12487;&#12496;&#12452;&#12473;&#12434;&#38283;&#12367;</span>
+  <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">SAMPLING_RATE</span>      = 44100;    <span style="color: #007400;">// </span><span style="color: #007400;">&#20837;&#21147;&#27874;&#24418;&#12398;&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;</span>
+  <span style="color: #a020f0;">const</span> <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">SAMPLE_BUFFER_SIZE</span> = 1024;     <span style="color: #007400;">// </span><span style="color: #007400;">&#27874;&#24418;&#12434;&#33988;&#12360;&#12390;&#12362;&#12367;&#12496;&#12483;&#12501;&#12449;&#12398;&#12469;&#12452;&#12474;</span>
+
+  <span style="color: #3f6e74;">ALCdevice</span>* <span style="color: #a0522d;">capture_device</span> = alcCaptureOpenDevice(<span style="color: #a020f0;">nullptr</span>, 
+                                                   SAMPLING_RATE, 
+                                                   AL_FORMAT_MONO16, 
+                                                   SAMPLE_BUFFER_SIZE);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#37682;&#38899;&#38283;&#22987;</span>
+  alcCaptureStart(capture_device);
+
+  <span style="color: #a020f0;">while</span> (1) {
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#37682;&#38899;&#12373;&#12428;&#12383;&#12487;&#12540;&#12479;&#37327;&#12434;&#35519;&#12409;&#12427;</span>
+    <span style="color: #3f6e74;">ALint</span> <span style="color: #a0522d;">sample</span>;
+    alcGetIntegerv(capture_device, 
+                   ALC_CAPTURE_SAMPLES, <span style="color: #a020f0;">sizeof</span>(sample), &amp;sample);
+
+    <span style="color: #a020f0;">if</span> (sample &gt; 0) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#37682;&#38899;&#12373;&#12428;&#12383;&#12487;&#12540;&#12479;&#12434;&#21463;&#12369;&#21462;&#12427; </span>
+      <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">buffer</span>(sample);
+      alcCaptureSamples(capture_device, 
+                        (<span style="color: #3f6e74;">ALCvoid</span>*)&amp;buffer[0], sample);
+    }
+  }
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#37682;&#38899;&#20572;&#27490;</span>
+  alcCaptureStop(capture_device);
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">OpenAL&#12398;&#24460;&#22987;&#26411;</span>
+  alcCaptureCloseDevice(capture_device);
+  alcCloseDevice(device);
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">11</span> もっと詳しく</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+今回ざっくりと紹介したOpenAL。より突っ込んだ使い方をしたくなったら仕様書の出番です。
+</p>
+
+<ul class="org-ul">
+<li><a id="orgtarget1"></a> <b>OpenAL公式</b> ⇒<a href="http://www.openal.org/">http://www.openal.org/</a><br  />
+OpenALの仕様書、開発ガイド、Windows向けのSDKが入手できます。</li>
+
+<li><a id="orgtarget2"></a> <b>OpenAL Soft</b> ⇒<a href="http://kcat.strangesoft.net/openal.html">http://kcat.strangesoft.net/openal.html</a><br  />
+OpenALのリポジトリから分岐して開発を続けているサイト。現在、Windows向けのOpenALライブラリや全ソースコードを入手できる数少ないサイトのうちの１つです。</li>
+
+<li><a id="orgtarget3"></a> <b>OpenAL 1.1 Specification and Reference</b> ⇒<a href="http://www.memorize-being.net/releases/oal11spec-ja/">http://www.memorize-being.net/releases/oal11spec-ja/</a><br  />
+有志の方によるOpenAL仕様書の邦訳。大変な労力を掛けて翻訳されており、頭の下がる思いです。拙者もこの仕様書を読みながらOpenALの操作を習得してゆきました。</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

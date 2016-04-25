@@ -1,0 +1,94 @@
+﻿Build started 2016/04/25 17:06:54.
+     1>Project "C:\Users\vantan\Desktop\自分の審査会\審査会用作品\Project.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp src\Clear.cpp src\Distance.cpp src\Door.cpp src\Enemy.cpp src\Fear.cpp src\GameMain.cpp src\GameOver.cpp src\Player.cpp src\Rule.cpp src\Scene.cpp src\Stage.cpp src\StartCount.cpp src\Title.cpp src\Wall.cpp src\lib\Input.cpp src\lib\Key.cpp src\lib\Texture.cpp
+         Texture.cpp
+     1>src\lib\Texture.cpp(106): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>src\lib\Texture.cpp(107): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+         Key.cpp
+     1>src\lib\Key.cpp(33): warning C4800: 'unsigned __int64' : forcing value to bool 'true' or 'false' (performance warning)
+     1>src\lib\Key.cpp(38): warning C4800: 'unsigned __int64' : forcing value to bool 'true' or 'false' (performance warning)
+     1>src\lib\Key.cpp(43): warning C4800: 'unsigned __int64' : forcing value to bool 'true' or 'false' (performance warning)
+         Input.cpp
+         Wall.cpp
+         Title.cpp
+     1>src\Title.cpp(118): warning C4305: 'argument' : truncation from 'double' to 'float'
+         StartCount.cpp
+         Stage.cpp
+         Scene.cpp
+         Rule.cpp
+         Player.cpp
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : see reference to class template instantiation 'Eigen::Quaternion<float,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' being compiled
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : see reference to class template instantiation 'Eigen::Quaternion<double,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' being compiled
+         GameOver.cpp
+         GameMain.cpp
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : see reference to class template instantiation 'Eigen::Quaternion<float,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' being compiled
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : see reference to class template instantiation 'Eigen::Quaternion<double,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' being compiled
+         Fear.cpp
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : see reference to class template instantiation 'Eigen::Quaternion<float,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' being compiled
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : see reference to class template instantiation 'Eigen::Quaternion<double,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' being compiled
+         Enemy.cpp
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : see reference to class template instantiation 'Eigen::Quaternion<float,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' being compiled
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : see reference to class template instantiation 'Eigen::Quaternion<double,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' being compiled
+         Door.cpp
+     1>src\Door.cpp(30): warning C4554: '&' : check operator precedence for possible error; use parentheses to clarify precedence
+         Distance.cpp
+         Clear.cpp
+         Main.cpp
+     1>C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : macro redefinition
+                 C:\Users\vantan\Desktop\自分の審査会\審査会用作品\include\GLFW/glfw3.h(96) : see previous definition of 'APIENTRY'
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : see reference to class template instantiation 'Eigen::Quaternion<float,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' being compiled
+     1>c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : multiple assignment operators specified
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : see reference to class template instantiation 'Eigen::Quaternion<double,0>' being compiled
+                 c:\users\vantan\desktop\自分の審査会\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : see reference to class template instantiation 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' being compiled
+     1>Main.cpp(49): warning C4244: 'argument' : conversion from 'float' to 'GLint', possible loss of data
+     1>Main.cpp(69): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>Main.cpp(59): warning C4101: 'stream' : unreferenced local variable
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\自分の審査会\審査会用作品\x64\Debug\Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:Windows\lib glfw3d.lib OpenGL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\自分の審査会\審査会用作品\x64\Debug\Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vantan\Desktop\自分の審査会\審査会用作品\x64\Debug\Project.lib" /MACHINE:X64 x64\Debug\Main.obj
+         x64\Debug\Clear.obj
+         x64\Debug\Collision.obj
+         x64\Debug\Distance.obj
+         x64\Debug\Door.obj
+         x64\Debug\Enemy.obj
+         x64\Debug\Fear.obj
+         x64\Debug\GameMain.obj
+         x64\Debug\GameOver.obj
+         x64\Debug\Audio.obj
+         x64\Debug\DrawBox.obj
+         x64\Debug\Input.obj
+         x64\Debug\Key.obj
+         x64\Debug\Texture.obj
+         x64\Debug\Player.obj
+         x64\Debug\Prologue.obj
+         x64\Debug\Rule.obj
+         x64\Debug\Scene.obj
+         x64\Debug\Stage.obj
+         x64\Debug\StartCount.obj
+         x64\Debug\Title.obj
+         x64\Debug\Wall.obj
+         Project.vcxproj -> C:\Users\vantan\Desktop\自分の審査会\審査会用作品\x64\Debug\Project.exe
+     1>Done Building Project "C:\Users\vantan\Desktop\自分の審査会\審査会用作品\Project.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:13.91

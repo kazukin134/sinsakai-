@@ -1,0 +1,32 @@
+﻿2016/02/01 20:59:32 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\審査会用作品\Project.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Iinclude /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\DrawBox.cpp src\Input.cpp src\Texture.cpp
+         Texture.cpp
+         Input.cpp
+         DrawBox.cpp
+         Main.cpp
+     1>c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
+                 c:\users\vantan\desktop\審査会用作品\include\glfw\glfw3.h(96) : 'APIENTRY' の前の定義を確認してください
+     1>c:\users\vantan\desktop\審査会用作品\main.cpp(70): warning C4244: '引数' : 'const float' から 'int' への変換です。データが失われる可能性があります。
+     1>c:\users\vantan\desktop\審査会用作品\main.cpp(89): warning C4244: '=' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>c:\users\vantan\desktop\審査会用作品\main.cpp(90): warning C4244: '=' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>c:\users\vantan\desktop\審査会用作品\main.cpp(40): warning C4101: 'stream' : ローカル変数は 1 度も使われていません。
+         コードを生成中...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\審査会用作品\Debug\Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Windows\lib glfw3d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\審査会用作品\Debug\Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vantan\Desktop\審査会用作品\Debug\Project.lib" /MACHINE:X86 Debug\Main.obj
+         Debug\DrawBox.obj
+         Debug\Input.obj
+         Debug\Texture.obj
+     1>LINK : fatal error LNK1104: ファイル 'glfw3d.lib' を開くことができません。
+     1>プロジェクト "C:\Users\vantan\Desktop\審査会用作品\Project.vcxproj" (Build ターゲット) のビルドが終了しました -- 失敗。
+
+ビルドに失敗しました。
+
+経過時間 00:00:06.01

@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+<head>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>実践サウンドエフェクト</title>
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="soundeffect.css" />
+</head>
+<body>
+<div id="content">
+<h1 class="title">実践サウンドエフェクト</h1>
+<div id="table-of-contents">
+<h2>&#30446;&#27425;</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline1">1. 音を加工してみる</a></li>
+<li><a href="#orgheadline2">2. ディレイ</a></li>
+<li><a href="#orgheadline3">3. ディストーション</a></li>
+<li><a href="#orgheadline4">4. トレモロ</a></li>
+<li><a href="#orgheadline5">5. ビブラート</a></li>
+<li><a href="#orgheadline6">6. 早送り</a></li>
+<li><a href="#orgheadline7">7. スロー再生</a></li>
+<li><a href="#orgheadline8">8. ピッチ変更</a></li>
+<li><a href="#orgheadline9">9. ボイスチェンジャ</a></li>
+<li><a href="#orgheadline10">10. 音の加工を組み合わせる</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> 音を加工してみる</h2>
+<div class="outline-text-2" id="text-1">
+
+<div class="figure">
+<p><img src="images/SmackTalk-1.jpg" alt="SmackTalk-1.jpg" />
+</p>
+<p><span class="figure-number">&#22259;1: </span> iPhoneアプリ「SmackTalk!」</p>
+</div>
+
+<p>
+iPhoneが発売された直後ぐらいに流行った <a href="http://www.appbank.net/2011/12/27/iphone-application/343393.php"><b>SmackTalk!</b></a> というアプリを知ってますか??  画面の動物に向かって話しかけると、動物がオウム返しをしてくれるというアプリです。
+</p>
+
+<p>
+オウム返しの声は動物によって少しピッチが速くなってたり、遅くなってたりでなんとも愛くるしく(憎らしく??)、癒されます。まさに、音声入力機能のあるiPhoneならではのアプリです。
+</p>
+
+<p>
+<b>これらの効果はどうやっているのでしょう??</b> iPhoneに用意された機能を使って&#x2026;ではなく、録音した波形データを逐次プログラムで加工することで実現しています。プログラムで実現しているのなら、みんなの出番です!! 冒頭で紹介したようなアプリが自分で作れたら、とても楽しそうですよね!!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> ディレイ</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+お風呂で鼻歌を歌うと、妙に上手くなったような気がしませんが?? これは周囲の壁に音が反射して響く <b>残響音</b> の効果でリッチに聞こえているからです。似たような効果に <b>やまびこ</b> があります。
+</p>
+
+<p>
+ディレイ効果を得るには、元の波形に、少し遅れて同じ波形を重ねてゆきます。それを何度も繰り返すと、お風呂場で歌っている時のようなあの残響音が得られるという寸法なのですね。
+</p>
+
+
+<div class="figure">
+<p><img src="images/delay.jpg" alt="delay.jpg" />
+</p>
+<p><span class="figure-number">&#22259;2: </span> ディレイ効果の概略</p>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12487;&#12451;&#12524;&#12452;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">input_samples &#21152;&#24037;&#12377;&#12427;&#27874;&#24418;&#12487;&#12540;&#12479;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">attenuation   &#28187;&#34928;&#29575;(0.0 ~ 1.0)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">time          &#36933;&#24310;&#26178;&#38291;(&#31186;)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">repeat        &#32368;&#12426;&#36820;&#12375;&#22238;&#25968;</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">delay</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                           <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">attenuation</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">time</span>, <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">repeat</span>) {
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#32080;&#26524;&#12434;&#26684;&#32013;&#12377;&#12427;&#22793;&#25968;</span>
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>(input_samples.size());
+
+  <span style="color: #007400;">// </span><span style="color: #ff0000; font-weight: bold;">TODO:</span><span style="color: #007400;">SAMPLING_RATE&#12399;&#20803;&#27874;&#24418;&#12398;&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;&#12395;&#20341;&#12379;&#12390;&#36969;&#26178;&#23450;&#32681;&#12398;&#12371;&#12392;</span>
+  <span style="color: #007400;">//        </span><span style="color: #007400;">&#27874;&#24418;&#12398;&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;&#12364;44.1kHz&#12394;&#12425;</span>
+  <span style="color: #007400;">//        </span><span style="color: #007400;">const int SAMPLING_RATE = 44100;</span>
+  <span style="color: #007400;">//        </span><span style="color: #007400;">&#12394;&#12393;&#12392;&#23450;&#32681;</span>
+  <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">d</span> = SAMPLING_RATE * time;
+  
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">n</span> = 0; n &lt; input_samples.size(); ++n) {
+    output_samples[n] = input_samples[n];
+
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">i</span> = 1; i &lt;= repeat; ++i) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#36942;&#21435;&#12398;&#27874;&#24418;&#12398;&#20301;&#32622;</span>
+      <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">m</span> = <span style="color: #3f6e74;">int</span>(n - i * d);
+
+      <span style="color: #a020f0;">if</span> (m &gt;= 0) {
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#36942;&#21435;&#12398;&#38899;&#12487;&#12540;&#12479;&#12434;&#12511;&#12483;&#12463;&#12473;&#12377;&#12427;</span>
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#27874;&#24418;&#12398;&#28187;&#34928;&#12395;&#12399;&#12409;&#12365;&#20055;&#12434;&#20351;&#12387;&#12390;&#12356;&#12427;</span>
+        output_samples[n] += <span style="color: #008b8b;">std</span>::pow(attenuation, <span style="color: #3f6e74;">float</span>(<span style="color: #a0522d;">i</span>)) * input_samples[m];
+      }
+    }
+  }
+  
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+さあ、どうなりました?? お風呂で歌っているような効果になりましたか?? うまくプログラムが動作したら、以下の課題に挑戦してみましょう。
+</p>
+
+<ul class="org-ul">
+<li><b>減衰率、遅延時間、繰り返し回数を色々と変えて、効果の違いを確かめる</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> ディストーション</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+エレキギター特有の歪んだ音色。ギターキッズなら誰もが憧れますよね。これは <b>ディストーション</b> とか <b>オーバードライブ</b> と呼ばれ、エレキギターを代表的する効果だと思います。
+</p>
+
+<p>
+これは意図的に波形を歪ませて得られる音色で、比較的簡単にプログラムで実装することができます。
+</p>
+
+
+<div class="figure">
+<p><img src="images/distortion.png" alt="distortion.png" />
+</p>
+<p><span class="figure-number">&#22259;3: </span> ディストーション効果の概略</p>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12487;&#12451;&#12473;&#12488;&#12540;&#12471;&#12519;&#12531;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">input_samples &#21152;&#24037;&#12377;&#12427;&#27874;&#24418;&#12487;&#12540;&#12479;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">gain          &#25345;&#12385;&#19978;&#12370;&#12427;&#37327;(0.0 ~)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">level         &#38899;&#37327;(0.0 ~ 1.0)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">distortion</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>, 
+                                <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">gain</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">level</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>;
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#27874;&#24418;&#12487;&#12540;&#12479;&#12434;&#65297;&#12388;&#65297;&#12388;&#22679;&#24133;</span>
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">ALshort</span> <span style="color: #a0522d;">sample</span> : input_samples) {
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#20516;&#12434;&#22679;&#24133;</span>
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">new_sample</span> = sample * gain;
+    
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#12463;&#12522;&#12483;&#12500;&#12531;&#12464;</span>
+    <span style="color: #007400;">// </span><span style="color: #a020f0;">TIPS:</span><span style="color: #007400;">&#26368;&#22823;&#20516;&#12392;&#26368;&#23567;&#20516;&#12399;&#37327;&#23376;&#21270;&#12499;&#12483;&#12488;&#25968;&#12395;&#22522;&#12389;&#12367;</span>
+    new_sample = <span style="color: #008b8b;">std</span>::min(new_sample,  32760.0f);
+    new_sample = <span style="color: #008b8b;">std</span>::max(new_sample, -32760.0f);
+
+    output_samples.push_back(ALshort(new_sample * level));
+  }
+
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+さあ、どうなりました?? エレキギターな感じに歪みました?? うまくプログラムが動作したら、以下の課題に挑戦してみましょう。
+</p>
+
+<ul class="org-ul">
+<li><b>levelやgainを色々と変えて、音の違いを確認する</b></li>
+</ul>
+
+<p>
+ちなみにオーバードライブはこんな感じになるそうです。 波形を意図的に歪ませている点は共通しているのですが、 <b>その歪ませ方にコツとノウハウがある</b> ようで、なかなかに奥の深い分野ですね。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12458;&#12540;&#12496;&#12540;&#12489;&#12521;&#12452;&#12502;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">input_samples &#21152;&#24037;&#12377;&#12427;&#27874;&#24418;&#12487;&#12540;&#12479;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">gain          &#25345;&#12385;&#19978;&#12370;&#12427;&#37327;(0.0 ~)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">level         &#38899;&#37327;(0.0 ~ 1.0)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">overdrive</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>, 
+                               <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">gain</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">level</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>;
+
+  <span style="color: #007400;">// </span><span style="color: #007400;">&#27874;&#24418;&#12487;&#12540;&#12479;&#12434;&#65297;&#12388;&#65297;&#12388;&#22679;&#24133;</span>
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">ALshort</span> <span style="color: #a0522d;">sample</span> : input_samples) {
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#20516;&#12434;&#22679;&#24133;</span>
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">new_sample</span> = sample * gain;
+    
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#12463;&#12522;&#12483;&#12500;&#12531;&#12464;</span>
+    <span style="color: #007400;">// </span><span style="color: #a020f0;">TIPS:</span><span style="color: #007400;">&#35336;&#31639;&#12398;&#32080;&#26524;&#12289;&#20516;&#12399; -1.0 ~ 1.0 &#12398;&#31684;&#22258;&#20869;&#12395;&#21454;&#12414;&#12427;</span>
+    <span style="color: #a020f0;">if</span> (new_sample &gt;= 0.0f) {
+      new_sample = <span style="color: #008b8b;">std</span>::atan(new_sample) / (M_PI / 2.0);
+    }
+    <span style="color: #a020f0;">else</span> {
+      new_sample = <span style="color: #008b8b;">std</span>::atan(new_sample) / (M_PI / 2.0) * 0.1f;
+    }
+
+    <span style="color: #007400;">// </span><span style="color: #007400;">&#20516;&#12434;ALshort&#22411;&#12398;&#26368;&#22823;&#20516;&#12395;&#21512;&#12431;&#12379;&#12390;&#12356;&#12427;</span>
+    output_samples.push_back(ALshort(new_sample * level * 32767.0f));
+  }
+
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> トレモロ</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+トレモロは、同じ高さの音を小刻みに連続して演奏する手法です。転じて <b>周期的に音量を変化させる効果</b> を指すようになりました。 楽器によってトレモロの定義はまちまちですが、今回は周囲的に音量を変化させる手法をプログラムで試してみましょう。
+</p>
+
+
+<div class="figure">
+<p><img src="images/2b70ed02.jpg" alt="2b70ed02.jpg" />
+</p>
+<p><span class="figure-number">&#22259;4: </span> 正弦波にトレモロ効果をつけてみた例</p>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12488;&#12524;&#12514;&#12525;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">depth &#28145;&#12373;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">rate  &#21608;&#26399;(Hz)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">tremolo</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                             <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">depth</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">rate</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>;
+
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">n</span> = 0; n &lt; input_samples.size(); ++n) {
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">a</span> = 1.0 + depth * <span style="color: #008b8b;">std</span>::sin(2.0 * M_PI * rate * n / SAMPLING_RATE);
+    output_samples.push_back(a * input_samples[n]);
+  }
+
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+うまくトレモロ効果が掛かりましたか?? うまく動いたら、以下の課題に挑戦してみましょう!!
+</p>
+
+<ul class="org-ul">
+<li><b>深さと周期を色々と変えてみて、どのように効果が変化するか確認する</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> ビブラート</h2>
+<div class="outline-text-2" id="text-5">
+
+<div class="figure">
+<p><img src="images/maxresdefault.jpg" alt="maxresdefault.jpg" />
+</p>
+<p><span class="figure-number">&#22259;5: </span> 「加賀岬」を熱唱中の加賀さん</p>
+</div>
+
+<p>
+よく <b>演歌でこぶしを利かせる</b> といいますが、あれがまさしくビブラートです。トレモロは音量の周期的な変化でしたが、 <b>ビブラートは音程の周期的な変化</b> なのです。
+</p>
+
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12499;&#12502;&#12521;&#12540;&#12488;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">d_time     &#36933;&#12428;(&#31186;)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">depth_time &#28145;&#12373;(&#31186;)</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">rate       &#21608;&#26399;(Hz)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">vibrato</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                             <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">d_time</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">depth_time</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">rate</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>;
+
+  <span style="color: #007400;">// </span><span style="color: #ff0000; font-weight: bold;">TODO:</span><span style="color: #007400;">SAMPLING_RATE&#12399;&#20803;&#27874;&#24418;&#12398;&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;&#12395;&#20341;&#12379;&#12390;&#36969;&#26178;&#23450;&#32681;&#12398;&#12371;&#12392;</span>
+  <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">d</span>     = d_time * SAMPLING_RATE;
+  <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">depth</span> = depth_time * SAMPLING_RATE;
+  
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">size_t</span> <span style="color: #a0522d;">n</span> = 0; n &lt; input_samples.size(); ++n) {
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">tau</span> = d + depth * <span style="color: #008b8b;">std</span>::sin(2.0 * M_PI * rate * n / SAMPLING_RATE);
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">t</span> = n - tau;
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">m</span> = <span style="color: #3f6e74;">int</span>(t);
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">delta</span> = t - m;
+    
+    <span style="color: #a020f0;">if</span> ((m &gt;= 0) &amp;&amp; ((m + 1) &lt; input_samples.size())) {
+      output_samples.push_back(delta * input_samples[m + 1] + (1.0 - delta) * input_samples[m]); 
+    }
+  }
+  
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+加賀さんよろしく演歌でこぶしを効かせているような効果が出ましたか?? プログラムがうまく動いたら、以下の課題に挑戦!!
+</p>
+
+<ul class="org-ul">
+<li><b>遅れ、深さ、周期を色々と変えてみて、どのように効果が変化するか確認する</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> 早送り</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+続いて、波形の再生時間を自在に変える <b>タイムストレッチ</b> に挑戦してみましょう。
+</p>
+
+<p>
+OpenALでは再生ピッチを変化させると、早送りやスロー再生っぽい事ができました。 では <b>音程を変えない早送り</b> はどうやって実現すれば良いのでしょう。 これがなかなかに難易度が高い。 今回紹介するプログラムでは、波形全体を少しずつ切り詰めていくことで擬似的に <b>音程を変えない早送り</b> を実現しています。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ts02.png" alt="ts02.png" />
+</p>
+<p><span class="figure-number">&#22259;6: </span> 早送りの概略図</p>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#26089;&#36865;&#12426;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">rate &#24230;&#21512;&#12356;(1.0&#12424;&#12426;&#22823;&#12365;&#12356;&#20516;)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">fastForwarding</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                                    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">rate</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>(input_samples.size() * rate + 1);
+
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">template_size</span> = SAMPLING_RATE * 0.01f;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">pmin</span> = SAMPLING_RATE * 0.005f;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">pmax</span> = SAMPLING_RATE * 0.02f;
+
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">x</span>(template_size);
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">y</span>(template_size);
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">r</span>(pmax + 1);
+  
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">offset0</span> = 0;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">offset1</span> = 0;
+
+  <span style="color: #a020f0;">while</span> (offset0 + pmax * 2 &lt; input_samples.size()) {
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#26412;&#26469;&#12398;&#12487;&#12540;&#12479;</span>
+      x[n] = input_samples[offset0 + n];
+    }
+    
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">max_of_r</span> = 0.0f;
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">p</span> = pmin;
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">m</span> = pmin; m &lt;= pmax; ++m) {
+      <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+        <span style="color: #007400;">// </span><span style="color: #007400;">m&#12469;&#12531;&#12503;&#12523;&#12378;&#12425;&#12375;&#12383;&#38899;&#12487;&#12540;&#12479;</span>
+        y[n] = input_samples[offset0 + m + n];
+      }
+      
+      r[m] = 0.0;
+      <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#30456;&#38306;&#38306;&#25968;</span>
+        <span style="color: #007400;">// </span><span style="color: #007400;">-32768 ~ 32767 &#12398;&#31684;&#22258;&#12398;&#20516;&#21516;&#22763;&#12398;&#25499;&#12369;&#31639;&#12434;</span>
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#32080;&#26524;&#12418;-32768 ~ 32767&#12398;&#31684;&#22258;&#12395;&#21454;&#12414;&#12427;&#12424;&#12358;&#12395;&#12375;&#12390;&#12356;&#12427;</span>
+        r[m] += (x[n] * y[n]) / 32768;
+      }
+      <span style="color: #a020f0;">if</span> (r[m] &gt; max_of_r) {
+        max_of_r = r[m];      <span style="color: #007400;">// </span><span style="color: #007400;">&#30456;&#38306;&#38306;&#25968;&#12398;&#12500;&#12540;&#12463;</span>
+        p = m;                <span style="color: #007400;">// </span><span style="color: #007400;">&#38899;&#12487;&#12540;&#12479;&#12398;&#22522;&#26412;&#21608;&#26399;</span>
+      }
+    }
+    
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; p; ++n) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#21336;&#35519;&#28187;&#23569;&#12398;&#37325;&#12415;&#12389;&#12369;</span>
+      output_samples[offset1 + n] = input_samples[offset0 + n] * (p - n) / p;
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#21336;&#35519;&#22679;&#21152;&#12398;&#37325;&#12415;&#12389;&#12369;</span>
+      output_samples[offset1 + n] += input_samples[offset0 + p + n] * n / p;
+    }
+    
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">q</span> = <span style="color: #3f6e74;">int</span>(p / (rate - 1.0) + 0.5);
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = p; n &lt; q; ++n) {
+      <span style="color: #a020f0;">if</span> (offset0 + p + n &gt;= input_samples.size()) {
+        <span style="color: #a020f0;">break</span>;
+      }
+      
+      output_samples[offset1 + n] = input_samples[offset0 + p + n];
+    }
+    
+    offset0 += p + q;
+    offset1 += q;
+  }
+  
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+いい感じに早送り感はでましたか?? プログラムがうまく動いたら、以下の課題に挑戦!!
+</p>
+
+<ul class="org-ul">
+<li><b>早送りの度合いを色々変えて、効果を確かめる</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> スロー再生</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+早送りと違い、少しずつ波形を引き延ばす処理をおこなえば、音程はそのままでスロー再生がおこなえます。
+</p>
+
+
+<div class="figure">
+<p><img src="images/ts03.png" alt="ts03.png" />
+</p>
+<p><span class="figure-number">&#22259;7: </span> スロー再生の概略図</p>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12473;&#12525;&#12540;&#20877;&#29983;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">rate &#24230;&#21512;&#12356;(0.5&#20197;&#19978;&#12289;1.0&#26410;&#28288;)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">slowForwarding</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                                    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">rate</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>(input_samples.size() / rate + 1);
+
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">template_size</span> = SAMPLING_RATE * 0.01f;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">pmin</span> = SAMPLING_RATE * 0.005f;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">pmax</span> = SAMPLING_RATE * 0.02f;
+
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">x</span>(template_size);
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">y</span>(template_size);
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;<span style="color: #3f6e74;">int</span>&gt; <span style="color: #a0522d;">r</span>(pmax + 1);
+  
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">offset0</span> = 0;
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">offset1</span> = 0;
+
+  <span style="color: #a020f0;">while</span> (offset0 + pmax * 2 &lt; input_samples.size()) {
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#26412;&#26469;&#12398;&#12487;&#12540;&#12479;</span>
+      x[n] = input_samples[offset0 + n];
+    }
+    
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">max_of_r</span> = 0.0f;
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">p</span> = pmin;
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">m</span> = pmin; m &lt;= pmax; ++m) {
+      <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+        <span style="color: #007400;">// </span><span style="color: #007400;">m&#12469;&#12531;&#12503;&#12523;&#12378;&#12425;&#12375;&#12383;&#38899;&#12487;&#12540;&#12479;</span>
+        y[n] = input_samples[offset0 + m + n];
+      }
+      
+      r[m] = 0.0;
+      <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; template_size; ++n) {
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#30456;&#38306;&#38306;&#25968;</span>
+        <span style="color: #007400;">// </span><span style="color: #007400;">-32768 ~ 32767 &#12398;&#31684;&#22258;&#12398;&#20516;&#21516;&#22763;&#12398;&#25499;&#12369;&#31639;&#12434;</span>
+        <span style="color: #007400;">// </span><span style="color: #007400;">&#32080;&#26524;&#12418;-32768 ~ 32767&#12398;&#31684;&#22258;&#12395;&#21454;&#12414;&#12427;&#12424;&#12358;&#12395;&#12375;&#12390;&#12356;&#12427;</span>
+        r[m] += (x[n] * y[n]) / 32768;
+      }
+      <span style="color: #a020f0;">if</span> (r[m] &gt; max_of_r) {
+        max_of_r = r[m];      <span style="color: #007400;">// </span><span style="color: #007400;">&#30456;&#38306;&#38306;&#25968;&#12398;&#12500;&#12540;&#12463;</span>
+        p = m;                <span style="color: #007400;">// </span><span style="color: #007400;">&#38899;&#12487;&#12540;&#12479;&#12398;&#22522;&#26412;&#21608;&#26399;</span>
+      }
+    }
+    
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; p; ++n) {
+      output_samples[offset1 + n] = input_samples[offset0 + n];
+    }
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; p; ++n) {
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#21336;&#35519;&#28187;&#23569;&#12398;&#37325;&#12415;&#12389;&#12369;</span>
+      output_samples[offset1 + p + n] = input_samples[offset0 + p + n] * (p - n) / p;
+      <span style="color: #007400;">// </span><span style="color: #007400;">&#21336;&#35519;&#22679;&#21152;&#12398;&#37325;&#12415;&#12389;&#12369;</span>
+      output_samples[offset1 + p + n] += input_samples[offset0 + n] * n / p;
+    }
+    
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">q</span> = <span style="color: #3f6e74;">int</span>(p * rate / (1.0 - rate) + 0.5);
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = p; n &lt; q; ++n) {
+      <span style="color: #a020f0;">if</span> (offset0 + n &gt;= input_samples.size()) {
+        <span style="color: #a020f0;">break</span>;
+      }
+      
+      output_samples[offset1 + p + n] = input_samples[offset0 + n];
+    }
+    
+    <span style="color: #007400;">// </span><span style="color: #007400;">offset&#12398;&#26356;&#26032;</span>
+    offset0 += q;
+    offset1 += p + q;
+  }
+
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+いい感じにスロー感はでましたか?? プログラムがうまく動いたら、以下の課題に挑戦!!
+</p>
+
+<ul class="org-ul">
+<li><b>スロー再生の度合いを色々変えて、効果を確かめる</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> ピッチ変更</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+続いて、音の高さを変更する効果を作ってみましょう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12500;&#12483;&#12481;&#22793;&#26356;&#12391;&#20351;&#12358;&#38306;&#25968;</span>
+<span style="color: #3f6e74;">float</span> <span style="color: #0000ff;">sinc</span>(<span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">x</span>) {
+  <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">y</span>;
+  
+  <span style="color: #a020f0;">if</span> (x == 0.0) {
+    y = 1.0;
+  }
+  <span style="color: #a020f0;">else</span> {
+    y = sin(x) / x;
+  }
+  
+  <span style="color: #a020f0;">return</span> y;
+}
+
+<span style="color: #007400;">// </span><span style="color: #007400;">&#12500;&#12483;&#12481;&#22793;&#26356;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">pitch &#24230;&#21512;&#12356; (1.0&#12424;&#12426;&#22823;&#12365;&#12356;&#12392;&#39640;&#12367;&#12394;&#12427;)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">pitch</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                           <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">pitch</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>(input_samples.size() / pitch, 0);
+
+  <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">j</span> = 24;
+  
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; output_samples.size(); ++n) {
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">t</span> = pitch * n;
+    <span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">offset</span> = <span style="color: #3f6e74;">int</span>(t);
+    <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">m</span> = offset - j / 2; m &lt;= offset + j / 2; ++m) {
+      <span style="color: #a020f0;">if</span> ((m &gt;= 0) &amp;&amp; (m &lt; input_samples.size())) {
+        output_samples[n] += input_samples[m] * sinc(M_PI * (t - m));
+      }
+    }
+  }
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+プログラムがうまく動いたら、以下の課題に挑戦!!
+</p>
+
+<ul class="org-ul">
+<li><b>ピッチの度合いを色々変えて、効果を確かめる</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">9</span> ボイスチェンジャ</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+カラオケなどでよく見かけるボイスチェンジャーも作ってみましょう。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #007400;">// </span><span style="color: #007400;">&#12508;&#12452;&#12473;&#12481;&#12455;&#12531;&#12472;&#12515;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">depth &#28145;&#12373;</span>
+<span style="color: #007400;">// </span><span style="color: #007400;">rate  &#21608;&#26399;(Hz)</span>
+<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #0000ff;">voiceChanger</span>(<span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt;&amp; <span style="color: #a0522d;">input_samples</span>,
+                                  <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">depth</span>, <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">rate</span>) {
+  <span style="color: #008b8b;">std</span>::<span style="color: #3f6e74;">vector</span>&lt;ALshort&gt; <span style="color: #a0522d;">output_samples</span>;
+
+  <span style="color: #007400;">// </span><span style="color: #ff0000; font-weight: bold;">TODO:</span><span style="color: #007400;">&#20803;&#27874;&#24418;&#12398;&#12469;&#12531;&#12503;&#12522;&#12531;&#12464;&#12524;&#12540;&#12488;&#12395;&#20341;&#12379;&#12390;SAMPLING_RATE&#12434;&#36969;&#26178;&#23450;&#32681;&#12377;&#12427;&#12371;&#12392;</span>
+  <span style="color: #a020f0;">for</span> (<span style="color: #3f6e74;">int</span> <span style="color: #a0522d;">n</span> = 0; n &lt; input_samples.size(); ++n) {
+    <span style="color: #3f6e74;">float</span> <span style="color: #a0522d;">a</span> = depth * <span style="color: #008b8b;">std</span>::sin(2.0 * M_PI * rate * n / SAMPLING_RATE);
+    output_samples.push_back(a * input_samples[n]);
+  }
+
+  <span style="color: #a020f0;">return</span> output_samples;
+}
+</pre>
+</div>
+
+<p>
+&#x2026;おや?? <b>以前入力したプログラム</b> によく似ていませんか?? 気のせい??
+</p>
+
+<p>
+プログラムがうまく動いたら、以下の課題に挑戦!!
+</p>
+
+<ul class="org-ul">
+<li><b>深さ、周期の度合いを色々変えて、効果を確かめる</b></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> 音の加工を組み合わせる</h2>
+<div class="outline-text-2" id="text-10">
+
+<div class="figure">
+<p><img src="images/pedalbrett_10_2009.jpg" alt="pedalbrett_10_2009.jpg" />
+</p>
+<p><span class="figure-number">&#22259;8: </span> ギターのエフェクターを連結した様子</p>
+</div>
+
+<p>
+これまで追加してきた効果を組み合わせて、 <b>自分だけの特別な効果</b> を生み出してみましょう。 <b>同じ効果を何度も重ねる</b> のもありです。 やったもん勝ち!!
+</p>
+
+<p>
+時間に余裕がある人は、冒頭で紹介したアプリのような、可愛らしい絵を表示してみたりと、見た目にも凝ってみましょう!!
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
