@@ -6,37 +6,33 @@
 #include <OpenAL/alc.h>
 
 #define _USE_MATH_DEFINES
-#include <cmath>
-#include <limits>
-#include <thread>
+
 #include "wav.hpp"
 #include <vector>
+#include <list>
 
 class Audio
 {
 	
+	
+
 	ALCdevice* device = alcOpenDevice(nullptr);
 
 	ALCcontext* context = alcCreateContext(device, nullptr);
+	
 
-	Wav wav1 = Wav("res/wav/éÙÇ¢ÇÃçsï˚.wav");
+	ALuint buffer_id;
 
-	float time = wav1.time();
-
-	const size_t pcm_freq = time;
-
-	ALuint buffer_id[5];
-
-	ALuint source_id[5];
+	ALuint source_id;
 
 
 public:
 
-	Audio();
+	Audio(const std::string  file);
 
 	~Audio();
 
-	void Buffer();
+	void Buffer(Wav wavfile);
 
 	void Source();
 

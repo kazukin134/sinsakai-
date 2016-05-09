@@ -1,4 +1,4 @@
-﻿2016/05/09 19:06:56 にビルドを開始しました。
+﻿2016/05/09 20:08:49 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\sinsakai-\審査会用作品\Project.vcxproj" (Build ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
@@ -11,7 +11,6 @@
      1>c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
                  c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
                  c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai-\審査会用作品\src/lib/Audio.h(26): warning C4244: '初期化中' : 'float' から 'const size_t' への変換です。データが失われる可能性があります。
      1>Main.cpp(51): warning C4244: '引数' : 'float' から 'GLint' への変換です。データが失われる可能性があります。
      1>Main.cpp(71): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
      1>Main.cpp(61): warning C4101: 'stream' : ローカル変数は 1 度も使われていません。
@@ -44,4 +43,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.81
+経過時間 00:00:01.68

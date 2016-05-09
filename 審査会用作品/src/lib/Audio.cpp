@@ -1,42 +1,42 @@
 #include "Audio.h"
 
-Audio::Audio()
+Audio::Audio(const std::string  file )
 {
-	//device = alcOpenDevice(nullptr);
-	//context = alcCreateContext(device, nullptr);
+	Wav wav = Wav(file);
 	alcMakeContextCurrent(context);
-	alGenBuffers(1, &buffer_id[0]);
-
+	Buffer(wav);
 }
 
 Audio::~Audio()
 {
-	alDeleteSources(1, &source_id[0]);
-	alDeleteBuffers(1, &buffer_id[0]);
+	alDeleteSources(1, &source_id);
+	alDeleteBuffers(1, &buffer_id);
 	alcMakeContextCurrent(nullptr);
 	alcDestroyContext(context);
 	alcCloseDevice(device);
 
 }
 
-void  Audio::Buffer()
+void  Audio::Buffer(Wav wavfile)
 {
-	alBufferData(buffer_id[0],
+	alGenBuffers(1, &buffer_id);
+
+	alBufferData(buffer_id,
 		AL_FORMAT_MONO16,
-		wav1.data(),
-		wav1.size(),
-		wav1.sampleRate() * 2);
+		wavfile.data(),
+		wavfile.size(),
+		wavfile.sampleRate() * 2);
 }
 
 void Audio::Source()
 {
-	alGenSources(5, &source_id[0]);
-	alSourcei(source_id[0], AL_BUFFER, buffer_id[0]);
+	alGenSources(1, &source_id);
+	alSourcei(source_id, AL_BUFFER, buffer_id);
 
-	ALfloat gain_value1 = 0.5;
-	alSourcef(source_id[0], AL_GAIN, gain_value1);
+	ALfloat gain_value = 0.5;
+	alSourcef(source_id, AL_GAIN, gain_value);
 }
 void Audio::Play()
 {
-	alSourcePlay(source_id[0]);
+	alSourcePlay(source_id);
 }
