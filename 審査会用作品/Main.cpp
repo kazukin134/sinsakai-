@@ -20,6 +20,8 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 
+#include "src/lib/Audio.h"
+
 
 class DbgStreambuf : public std::streambuf {
 	std::vector<TCHAR> str_;
@@ -81,11 +83,15 @@ int main()
 	glfwMakeContextCurrent(window);
 
 	CScene scene;
-
+	Audio audio;
 
 	glOrtho(-window_width / 2, window_width / 2, -window_height / 2, window_height / 2, -1.0f, 1.0f);
 
 	glfwSetKeyCallback(window, KeyCallback);
+
+	audio.Buffer();
+	audio.Source();
+	audio.Play();
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -95,6 +101,8 @@ int main()
 		glClear(GL_COLOR_BUFFER_BIT);
 		
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
+
+		
 
 		scene.Main();
 

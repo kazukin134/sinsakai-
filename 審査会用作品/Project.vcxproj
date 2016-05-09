@@ -71,6 +71,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>include;Windows/include;$(IncludePath)</IncludePath>
+    <LibraryPath>Windows/lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -109,7 +111,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>Windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3d.lib;OpenGL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3d.lib;OpenGL32.lib;OpenAL32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
@@ -169,6 +171,7 @@
     <ClCompile Include="src\lib\Input.cpp" />
     <ClCompile Include="src\lib\Key.cpp" />
     <ClCompile Include="src\lib\Texture.cpp" />
+    <ClCompile Include="src\lib\wav.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Prologue.cpp" />
     <ClCompile Include="src\Rule.cpp" />
@@ -193,6 +196,7 @@
     <ClInclude Include="src\lib\Input.h" />
     <ClInclude Include="src\lib\Key.h" />
     <ClInclude Include="src\lib\Texture.h" />
+    <ClInclude Include="src\lib\wav.hpp" />
     <ClInclude Include="src\Object.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Prologue.h" />
