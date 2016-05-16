@@ -11,10 +11,13 @@ Audio::~Audio()
 	alcCloseDevice(device);
 }
 
+//ˆê‰ñ‚¾‚¯ŒÄ‚ñ‚Å—~‚µ‚¢
 void Audio::Init()
 {
+	//‚Q‰ñˆÈã‚Í’Ê‚ç‚È‚¢‚æ‚¤‚É‚µ‚½B
+	if (isfirst)return;
 	alcMakeContextCurrent(context);
-
+	isfirst = true;
 }
 
 Media::Media(const std::string  file)

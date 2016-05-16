@@ -11,6 +11,9 @@
 #include <vector>
 #include <list>
 
+static bool isfirst = false;
+
+
 class Audio
 {
 	ALCdevice* device = alcOpenDevice(nullptr);
@@ -19,12 +22,13 @@ class Audio
 
 	void Init();
 
+
+
 public:
 
 	Audio();
 
 	~Audio();
-
 
 
 	
