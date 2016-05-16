@@ -83,18 +83,17 @@ int main()
 	glfwMakeContextCurrent(window);
 
 	CScene scene;
-	//Audio audio("res/wav/éÙÇ¢ÇÃçsï˚.wav");
-	Audio audio1("res/wav/tw036.wav");
+	Audio audio;
+
+	Media media("res/wav/jump_2.wav");
+	Media media1("res/wav/tw036.wav");
+	//Media media;
 	glOrtho(-window_width / 2, window_width / 2, -window_height / 2, window_height / 2, -1.0f, 1.0f);
 
 	glfwSetKeyCallback(window, KeyCallback);
 
-	//audio.Buffer();
-	//audio.Source();
-	//audio.Play();
-
-	audio1.Source();
-	audio1.Play();
+	media.Play();
+	//media1.Play();
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -107,6 +106,15 @@ int main()
 
 		
 
+		if (IsPushKey(GLFW_KEY_0))
+		{
+			media.Looping(true);
+		}
+
+		if (IsPushKey(GLFW_KEY_1))
+		{
+			media.Play();
+		}
 		scene.Main();
 
 		UpdateKeys();

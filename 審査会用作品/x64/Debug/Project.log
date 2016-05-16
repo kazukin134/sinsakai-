@@ -1,4 +1,4 @@
-﻿2016/05/09 20:08:49 にビルドを開始しました。
+﻿2016/05/16 18:06:52 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\sinsakai-\審査会用作品\Project.vcxproj" (Build ターゲット)。
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp
@@ -43,4 +43,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:01.68
+経過時間 00:00:01.41
