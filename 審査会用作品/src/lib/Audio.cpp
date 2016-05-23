@@ -22,7 +22,8 @@ void Audio::Init()
 	alcMakeContextCurrent(context);
 	isfirst = true;
 }
-
+//音の読み込み
+//初期化時に音のファイル名を引数を書く
 Media::Media(const std::string  file)
 {
 	Wav wav = Wav(file);
@@ -30,6 +31,7 @@ Media::Media(const std::string  file)
 	Source();
 }
 
+//後処理
 Media::~Media()
 {
 	alDeleteBuffers(1, &buffer_id);
@@ -37,6 +39,7 @@ Media::~Media()
 	alDeleteSources(1, &source_id);
 }
 
+//バッファの処理
 void  Media::Buffer(Wav wavfile)
 {
 	alGenBuffers(1, &buffer_id);
@@ -50,37 +53,57 @@ void  Media::Buffer(Wav wavfile)
 		wavfile.sampleRate());
 }
 
+//ソースの処理
 void Media::Source()
 {
 	alGenSources(1, &source_id);
 	alSourcei(source_id, AL_BUFFER, buffer_id);
 }
 
+//音の再生
 void Media::Play()
 {
 	alSourcePlay(source_id);
 }
 
+//音の停止
 void Media::Stop()
 {
 	alSourceStop(source_id);
 };
 
+//音の一時停止
 void Media::Pause()
 {
 	alSourcePause(source_id);
 };
 
+//音のボリュームの変更(0.0f～1.0f)
 void Media::Gain(const float value)
 {
-	alSourcef(source_id, AL_GAIN, value);
+	float volume = 0.0f;
+	volume = value;
+
+	if (volume > 1)
+	{
+		volume = 1.0f;
+	}
+	else
+	if (volume < 0.0f)
+	{
+		volume = 0.0f;
+	}
+
+	alSourcef(source_id, AL_GAIN, volume);
 };
 
+//音のループするかどうか
 void Media::Looping(const bool value)
 {
 	alSourcei(source_id, AL_LOOPING, value ? true : false);
 };
 
+//音が今流れているかどうか
 bool Media::IsPlaying()
 {
 	ALint state;
@@ -88,6 +111,7 @@ bool Media::IsPlaying()
 	return state == AL_PLAYING;
 };
 
+// 再生位置(秒)
 float Media::CurrentTime()
 {
 	ALfloat current_time_sce;
@@ -95,6 +119,7 @@ float Media::CurrentTime()
 	return current_time_sce;
 };
 
+// 再生時間(秒)
 float Media::Duration()
 {
 	return duration_sec_;
