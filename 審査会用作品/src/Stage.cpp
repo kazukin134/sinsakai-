@@ -111,7 +111,7 @@ void CStage::Update()
 	if (CGameMain::Player->over == 0)
 	if (!standardbgm.IsPlaying())
 	{
-		standardbgm.Gain(0.05f);
+		standardbgm.Gain(0.5f);
 		standardbgm.Looping(true);
 		standardbgm.Play();
 
@@ -167,7 +167,7 @@ void CStage::Draw()
 
 	if (CGameMain::Wall->disp_x + 300 > -400)
 	{
-		//standardbgm.Stop();
+		standardbgm.Stop();
 		if (wallbgm.IsPlaying() == false)
 		{
 

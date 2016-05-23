@@ -2,11 +2,14 @@
 
 Audio::Audio()
 {
+	device = alcOpenDevice(nullptr);
+	context = alcCreateContext(device, nullptr);
 	Init();
 }
 
 Audio::~Audio()
 {
+	alcMakeContextCurrent(nullptr);
 	alcDestroyContext(context);
 	alcCloseDevice(device);
 }
@@ -29,11 +32,9 @@ Media::Media(const std::string  file)
 
 Media::~Media()
 {
-	alDeleteSources(1, &source_id);
 	alDeleteBuffers(1, &buffer_id);
-	alcMakeContextCurrent(nullptr);
-
-
+	alSourcei(source_id, AL_BUFFER, 0);
+	alDeleteSources(1, &source_id);
 }
 
 void  Media::Buffer(Wav wavfile)

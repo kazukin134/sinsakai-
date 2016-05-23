@@ -16,28 +16,18 @@ static bool isfirst = false;
 
 class Audio
 {
-	ALCdevice* device = alcOpenDevice(nullptr);
-
-	ALCcontext* context = alcCreateContext(device, nullptr);
-
-	
-
-
+	ALCdevice* device;
+	ALCcontext* context;
 
 public:
 
 	Audio();
-
 	~Audio();
 	void Init();
-
-	
 };
 
 class Media
 {
-
-
 	ALuint buffer_id;
 	ALuint source_id;
 
@@ -46,7 +36,6 @@ class Media
 public:
 	Media(){};
 	Media(const std::string  file);
-
 	~Media();
 
 	void Buffer(Wav wavfile);
