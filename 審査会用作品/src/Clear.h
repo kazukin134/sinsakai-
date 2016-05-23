@@ -1,12 +1,13 @@
 #pragma once
 #include "lib\Texture.h"
 #include "lib\Key.h"
+#include "lib\Audio.h"
 
 class CClear
 {
 	Texture drawclear;
 	Texture logo;
-	//Media clearbgm;
+	Media clearbgm;
 public:
 	CClear();
 	~CClear();

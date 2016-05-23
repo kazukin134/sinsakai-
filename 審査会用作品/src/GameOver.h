@@ -7,6 +7,7 @@
 #include "lib\Texture.h"
 #include "lib\DrawBox.h"
 #include "lib\Key.h"
+#include "lib\Audio.h"
 
 class CGameOver : public  Object
 {
@@ -14,7 +15,7 @@ class CGameOver : public  Object
 	Texture drawover;
 	Texture gameoverlogo;
 
-//	Media gameoverbgm;
+	Media gameoverbgm;
 
 public:
 	CGameOver();

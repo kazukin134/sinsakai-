@@ -20,7 +20,7 @@ class Audio
 
 	ALCcontext* context = alcCreateContext(device, nullptr);
 
-	void Init();
+	
 
 
 
@@ -29,7 +29,7 @@ public:
 	Audio();
 
 	~Audio();
-
+	void Init();
 
 	
 };
@@ -44,7 +44,7 @@ class Media
 	float  duration_sec_;
 
 public:
-
+	Media(){};
 	Media(const std::string  file);
 
 	~Media();

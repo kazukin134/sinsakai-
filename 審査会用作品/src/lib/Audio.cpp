@@ -53,9 +53,6 @@ void Media::Source()
 {
 	alGenSources(1, &source_id);
 	alSourcei(source_id, AL_BUFFER, buffer_id);
-
-	ALfloat gain_value = 0.5;
-	alSourcef(source_id, AL_GAIN, gain_value);
 }
 
 void Media::Play()

@@ -3,7 +3,7 @@
 #include "Collision.h"
 #include "lib/Texture.h"
 #include "lib\DrawBox.h"
-
+#include "lib\Audio.h"
 class CStage :public Object
 {
 	Texture stage;
@@ -12,8 +12,8 @@ class CStage :public Object
 	Texture drawfall;
 
 
-	//Media standardbgm;
-	//Media wallbgm;
+	Media standardbgm;
+	Media wallbgm;
 
 public:
 	CStage();

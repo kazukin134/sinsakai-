@@ -3,6 +3,7 @@
 #include "lib\Texture.h"
 #include "lib\Key.h"
 #include "lib\DrawBox.h"
+#include "lib\Audio.h"
 
 class CTitle : public Object
 {
@@ -11,7 +12,9 @@ class CTitle : public Object
 	Texture start;
 	Texture rule;
 	Texture end;
-	//Media titlebgm;
+	//Audio audio;
+	Media titlebgm;
+	
 
 public:
 	CTitle();
@@ -20,9 +23,9 @@ public:
 	void Update();
 	void Draw();
 
-
 	int title;
 	float selected_game;
 	float selected_rule;
 	float selected_end;
+
 };

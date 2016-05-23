@@ -11,9 +11,9 @@ CStage::CStage():
 floor("res/raw/yuka.raw",1024,128),
 stage("res/raw/d0159655_162422320.raw",512,512),
 door("res/raw/door/door111.raw",256,256),
-drawfall("res/raw/22008C.raw",1024,1024)
-//standardbgm("res/standard.wav"),
-//wallbgm("res/wall.wav")
+drawfall("res/raw/22008C.raw",1024,1024),
+standardbgm("res/wav/standard.wav"),
+wallbgm("res/wav/wall.wav")
 {
 	//x = 0.0;
 	y = -240;
@@ -108,15 +108,15 @@ void CStage::Update()
 {
 
 	
-	//if (CGameMain::Player->over == 0)
-	//if (!standardbgm.isPlaying())
-	//{
-	//	standardbgm.gain(0.05f);
-	//	standardbgm.looping(true);
-	//	standardbgm.play();
+	if (CGameMain::Player->over == 0)
+	if (!standardbgm.IsPlaying())
+	{
+		standardbgm.Gain(0.05f);
+		standardbgm.Looping(true);
+		standardbgm.Play();
 
 		
-//	}
+	}
 //	if (CGameMain::Wall->disp_x + 300 > -400)
 //	{
 		
@@ -165,21 +165,21 @@ void CStage::Draw()
 {
 	
 
-	//if (CGameMain::Wall->disp_x + 300 > -400)
-	//{
-	//	standardbgm.stop();
-	//	if (!wallbgm.isPlaying())
-	//	{
+	if (CGameMain::Wall->disp_x + 300 > -400)
+	{
+		//standardbgm.Stop();
+		if (wallbgm.IsPlaying() == false)
+		{
 
-	//		wallbgm.play();
-	//		wallbgm.gain(0.05);
-	//		wallbgm.looping(true);
-	//	}
-	//}
-	//if (CGameMain::Player->clearflag == 1 && wallbgm.isPlaying())
-	//{
-	//	wallbgm.stop();
-	//}
+			wallbgm.Play();
+			wallbgm.Gain(0.05);
+			wallbgm.Looping(true);
+		}
+	}
+	if (CGameMain::Player->clearflag == 1 && wallbgm.IsPlaying())
+	{
+		wallbgm.Stop();
+	}
 	stage.DrawTextureBox(-320, y, 800, 500, 0 + scrollX, 0, 560, 373, Color(1, 1, 1,1));
 	floor.DrawTextureBox(-320, -240, 800, 100, 0 + scrollX, 0, 1024, 128, Color(1, 1, 1,1));
 	door.DrawTextureBox(4000 - scrollX, y + 64, 100, 150, 0, 0, 86, 226, Color(1, 1, 1,1));

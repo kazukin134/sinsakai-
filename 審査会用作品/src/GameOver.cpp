@@ -4,8 +4,8 @@
 CGameOver::CGameOver()
 	:retry_or_title("res/raw/gameover.raw", 512, 256),
 drawover("res/raw/GameOvarBackground.raw",1024,1024),
-gameoverlogo("res/raw/gameoverlogo.raw",512,512)
-//gameoverbgm("res/gameover.wav")
+gameoverlogo("res/raw/gameoverlogo.raw",512,512),
+gameoverbgm("res/wav/gameover.wav")
 {
 	x = 0;
 	y = -50;
@@ -42,8 +42,8 @@ void CGameOver::Choice()
 		}
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
-				 // gameoverbgm.looping(false);
-				 // gameoverbgm.stop();
+				  gameoverbgm.Looping(false);
+				  gameoverbgm.Stop();
 
 				  CGameMain::Player->over = 0;
 			  }
@@ -62,8 +62,8 @@ void CGameOver::Choice()
 		
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
-				  //gameoverbgm.looping(false);
-				  //gameoverbgm.stop();
+				  gameoverbgm.Looping(false);
+				  gameoverbgm.Stop();
 				  selected_title = 1;
 			  }
 	}
@@ -74,13 +74,13 @@ void CGameOver::Choice()
 
 void CGameOver::Update()
 {
-	//if (!(gameoverbgm.isPlaying()))
-	//{
-	//	gameoverbgm.looping(true);
-	//	gameoverbgm.play();
-	//	gameoverbgm.gain(0.05);
+	if (!(gameoverbgm.IsPlaying()))
+	{
+		gameoverbgm.Looping(true);
+		gameoverbgm.Play();
+		gameoverbgm.Gain(0.05f);
 
-	//}
+	}
 
 	Choice();
 }

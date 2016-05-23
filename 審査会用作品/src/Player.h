@@ -2,13 +2,14 @@
 #include "Object.h"
 #include "Collision.h"
 #include "lib\Key.h"
+#include "lib\Audio.h"
 
 class CPlayer : public Object{
 
 	Texture playerdraw;
 	Texture ran;
 	Texture jamp;
-	//Media jampse;
+	Media jampse;
 
 	//Texture player;
 

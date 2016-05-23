@@ -2,8 +2,8 @@
 
 CClear::CClear():
 drawclear("res/raw/door/door0405_or2.raw",256,256),
-logo("res/raw/clearlogo.raw",1024,512)
-//clearbgm("res/tw036.wav")
+logo("res/raw/clearlogo.raw",1024,512),
+clearbgm("res/wav/tw036.wav")
 {
 	selected_clear = 0;
 }

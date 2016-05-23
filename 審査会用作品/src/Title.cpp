@@ -6,9 +6,13 @@ CTitle::CTitle()
 titlelogo("res/raw/titlelogo01.raw",512,128),
 start("res/raw/suta-to.raw",256,128),
 rule("res/raw/rule.raw",512,128),
-end("res/raw/end.raw",256,128)
-//titlebgm("res/titleb.wav")
+end("res/raw/end.raw",256,128),
+titlebgm("res/wav/titleb.wav")
 {
+	//audio;
+	//titlebgm = Media("res/wav/jump_2.wav");
+//	titlebgm.Play();
+	//titlebgm.Gain(1.0f);
 	x = 0;
 	y = 0;
 	width = 100;
@@ -92,18 +96,18 @@ void CTitle::Update()
 	}
 
 
-	//if (selected_rule == 0 && selected_game == 0)
-	//if (!(titlebgm.isPlaying()))
-	//{
-	//	titlebgm.looping(true);
-	//	titlebgm.play();
-	//	titlebgm.gain(0.05);
+	if (selected_rule == 0 && selected_game == 0)
+	if (!(titlebgm.IsPlaying()))
+	{
+		titlebgm.Looping(true);
+		titlebgm.Play();
+		titlebgm.Gain(0.5f);
 
-	//}
-//	if (selected_rule == 1 || selected_game == 1)
-//	{
-	//	titlebgm.stop();
-//	}
+	}
+	if (selected_rule == 1 || selected_game == 1)
+	{
+		titlebgm.Stop();
+	}
 
 }
 

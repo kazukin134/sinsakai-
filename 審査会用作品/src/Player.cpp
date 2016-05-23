@@ -9,8 +9,8 @@
 CPlayer::CPlayer()
 	:playerdraw("res/raw/dassyu.raw", 512, 512),
 	ran("res/raw/gurugu.raw", 512, 512),
-	jamp("res/raw/hasiru.raw", 512, 512)
-	//jampse("res/jump_2.wav")
+	jamp("res/raw/hasiru.raw", 512, 512),
+	jampse("res/wav/jump_2.wav")
 {
 	palyer_alpha = 1.0f;
 	x = 0.0;
@@ -50,9 +50,6 @@ CPlayer::~CPlayer()
 
 void CPlayer::Move()
 {
-	//CGameMain::Enemy->angle_y = CGameMain::Enemy->angle;
-	//CGameMain::Enemy->wave = std::sin(CGameMain::Enemy->angle_y) * 25.0;
-	//CGameMain::Enemy->angle_y += 0.04;
 
 
 
@@ -61,20 +58,7 @@ void CPlayer::Move()
 		CGameMain::Stage->Scroll(true,x,speed);
 
 		movecount++;
-		//angle -= 0.4f;
 
-		//velocity_x = speed;
-
-		//if (scrollX > 0)
-		//{
-		//	scrollX += velocity_x;
-		//}
-
-		//if (scrollX <= 0)
-		//{
-		//	x += velocity_x;
-		//	scrollX += x;
-		//}
 
 		movedistance = movecount * -speed;
 	}
@@ -123,8 +107,8 @@ void CPlayer::Move()
 
  			force = 26;
 			state = STATE::JUNP;
-			//jampse.gain(0.5f);
-			//jampse.play();
+			jampse.Gain(0.5f);
+			jampse.Play();
 		}
 
 	}

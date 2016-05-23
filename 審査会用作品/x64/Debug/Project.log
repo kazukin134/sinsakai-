@@ -1,23 +1,9 @@
-﻿2016/05/16 19:07:43 にビルドを開始しました。
+﻿2016/05/20 16:52:02 にビルドを開始しました。
      1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\sinsakai-\審査会用作品\Project.vcxproj" (Build ターゲット)。
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp src\lib\Audio.cpp
-         Main.cpp
-     1>C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
-                 C:\Users\vantan\Desktop\sinsakai-\審査会用作品\include\GLFW/glfw3.h(96) : 'APIENTRY' の前の定義を確認してください
-     1>c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>Main.cpp(51): warning C4244: '引数' : 'float' から 'GLint' への変換です。データが失われる可能性があります。
-     1>Main.cpp(71): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
-     1>Main.cpp(61): warning C4101: 'stream' : ローカル変数は 1 度も使われていません。
-         コードを生成中...
-         コンパイル中...
-         Audio.cpp
-         コードを生成中...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt src\Stage.cpp
+         Stage.cpp
+     1>src\Stage.cpp(175): warning C4305: '引数' : 'double' から 'const float' へ切り詰めます。
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:Windows\lib glfw3d.lib OpenGL32.lib OpenAL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.lib" /MACHINE:X64 x64\Debug\Main.obj
          x64\Debug\Clear.obj
@@ -47,4 +33,4 @@
 
 ビルドに成功しました。
 
-経過時間 00:00:02.06
+経過時間 00:00:01.93
