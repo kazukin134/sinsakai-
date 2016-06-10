@@ -1,11 +1,13 @@
 #pragma once
 #include "Object.h"
 #include "Collision.h"
+#include "lib/Texture.h"
+#include "lib\DrawBox.h"
 
 class CWall :public Object
 {
 
-	//Texture wall;
+	Texture wall;
 
 public:
 	CWall();

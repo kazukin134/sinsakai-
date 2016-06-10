@@ -46,17 +46,12 @@ CGameMain::~CGameMain()
 
 void CGameMain::Draw()
 {
-	
-
-
-
-	//Door.Draw();
 	Stage->Draw();
 	Player->Draw();
 	Enemy->Draw();
-	Wall->Draw();
 	Distance->Draw();
 	Fear->Draw();
+	Wall->Draw();
 	startcount->Draw();
 }
 

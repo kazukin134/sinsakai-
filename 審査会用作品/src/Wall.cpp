@@ -1,12 +1,9 @@
-//#include "lib\appEnv.hpp"
-//#include "Main.h"
 #include "Wall.h"
 #include "Player.h"
 #include "GameMain.h"
 #include "Stage.h"
 
-CWall::CWall()
-//:wall("res/obake02.png")
+CWall::CWall() :wall("res/raw/obake02.raw", 512, 512)
 {
 	x = -2500.0;
 	startY = 64;
@@ -16,7 +13,7 @@ CWall::CWall()
 	velocity_x = 0;
 	velocity_y = 0;
 	scrollX = x;
-	stageX = x;
+	stage_x = x;
 	
 	speed = 3.2f;
 	screenspeed = 1.5f;
@@ -67,7 +64,7 @@ void CWall::Update()
 
 void CWall::Draw()
 {
-	//drawTextureBox(disp_x, y, width, height - 150, 127, 0, 357, 402, wall, Color(1, 1, 1));
+	wall.DrawTextureBox(disp_x, y-150, width, height - 150, 127, 0, 357, 402, Color(1, 1, 1,1));
 	//drawFillBox(disp_x, y, width, height,  Color(0.5, 1, 0));
 }
 

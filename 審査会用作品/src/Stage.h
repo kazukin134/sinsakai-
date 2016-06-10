@@ -15,6 +15,9 @@ class CStage :public Object
 	Media standardbgm;
 	Media wallbgm;
 
+	float goalposition;
+
+
 public:
 	CStage();
 	~CStage();
@@ -27,7 +30,15 @@ public:
 	float seflag;
 	
 	float fallx;		//—‚Æ‚µŒŠ‚ÌxÀ•W
-	float fall[10];
+
+	static const int fall_number  = 5;
+	float fall[fall_number];
+
+	float getgoalposition()
+	{
+		return goalposition;
+	};
+
 
 };
 

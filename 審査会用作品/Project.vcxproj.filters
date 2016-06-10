@@ -13,18 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{c417f02f-9a91-46d2-9132-4b3bc975b08d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\cpp">
+      <UniqueIdentifier>{972bf032-bfba-40bb-9dcb-49ffbe98d250}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\h">
+      <UniqueIdentifier>{b59d2dcd-d992-4155-bf18-8ea0ccbf923d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\lib\DrawBox.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\Input.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\Texture.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\Enemy.cpp">
@@ -72,17 +75,26 @@
     <ClCompile Include="src\Door.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="src\lib\Key.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="src\StartCount.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="src\lib\Audio.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="src\lib\wav.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Audio.cpp">
+      <Filter>lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Input.cpp">
+      <Filter>lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Matrix.cpp">
+      <Filter>lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Key.cpp">
+      <Filter>lib\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\Texture.cpp">
+      <Filter>lib\cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,12 +102,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\lib\DrawBox.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lib\Input.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lib\Texture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\Clear.h">
@@ -146,17 +152,26 @@
     <ClInclude Include="src\Wall.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="src\lib\Key.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="src\StartCount.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="src\lib\Audio.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="src\lib\wav.hpp">
       <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Audio.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Input.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Key.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Texture.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Matrix.h">
+      <Filter>lib\h</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -45,7 +45,7 @@ public:
 	~Media();
 
 	//バッファの処理
-	void Buffer(Wav wavfile);
+	void Buffer(Wav &wavfile);
 
 	//ソースの処理
 	void Source();

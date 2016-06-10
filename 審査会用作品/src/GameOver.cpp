@@ -45,7 +45,7 @@ void CGameOver::Choice()
 				  gameoverbgm.Looping(false);
 				  gameoverbgm.Stop();
 
-				  CGameMain::Player->over = 0;
+				  CGameMain::Player->is_over = false;
 			  }
 	}
 		break;

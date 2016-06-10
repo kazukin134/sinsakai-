@@ -6,9 +6,9 @@
 #include "src/lib/Texture.h"
 #include "src/Scene.h"
 #include "src/Stage.h"
-//#include "src/lib/Key.h"
 #include "src/lib/DrawBox.h"
-#include "src\Title.h"
+#include "src/Title.h"
+#include "src/lib/Audio.h"
 
 #include <GLFW/glfw3.h>
 #include <cstdlib>
@@ -19,8 +19,6 @@
 #include <vector>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
-
-#include "src/lib/Audio.h"
 
 
 class DbgStreambuf : public std::streambuf {
@@ -59,9 +57,7 @@ int main()
 {
 	DbgStreambuf dbg_stream;
 	std::streambuf* stream;
-
 	GLFWwindow* window;
-
 
 	/* Initialize the library */
 	if (!glfwInit())
@@ -79,26 +75,22 @@ int main()
 
 	glfwSetWindowSizeCallback(window, ChangeWindowSize3D);
 
-
 	glfwMakeContextCurrent(window);
 
 	Audio audio;
 	CScene scene;
-	
-	//Media a("res/wav/éÙÇ¢ÇÃçsï˚.wav");
 
 	glOrtho(-window_width / 2, window_width / 2, -window_height / 2, window_height / 2, -1.0f, 1.0f);
 
 	glfwSetKeyCallback(window, KeyCallback);
 
-	//a.Play();
 	while (!glfwWindowShouldClose(window))
 	{
 
 		glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 		glClear(GL_COLOR_BUFFER_BIT);
-		
+
 		glBlendFunc(GL_SRC_COLOR, GL_DST_COLOR);
 
 		scene.Main();

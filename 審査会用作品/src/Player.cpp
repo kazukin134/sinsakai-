@@ -17,233 +17,205 @@ CPlayer::CPlayer()
 	y = -240 + margin;
 	width = 50;
 	height = 110;
-	velocity_x = 0;
 	velocity_y = 0;
-	scrollX = x;
-	stageX = this->x;
-	startX = 0;
-	speed = 3;
-	fallflag = 0;
+	speed = 3.2;
+	is_fall = false;
 	fall = 0;
-	hitflag = 0;
-	fallcollisionflag = 0;
+	fallcollisionflag = false;
 	hitcount = 0;
 	movecount = 0;
-	wallhitflag = 0;
+	wallenemyhitflag = false;
 	hittime = 60;
 	movedistance = 0;
-	//hitlost = 0;
-	over = 0;
-	clearflag = 0;
+	is_over = false;
+	is_clear = false;
 	invincibilitytime = 60;
 	angle = 0.0;
-	state = STATE::NORMAL;
+	jumpstate = JUMPSTATE::NORMAL;
+	hitstate = HITSTATE::NORMAL;
 	force = 0;
+	is_hit_enemy = false;
 }
 
-
-CPlayer::~CPlayer()
-{
-
-}
-
+CPlayer::~CPlayer(){}
 
 void CPlayer::Move()
 {
-
-
-
-	if ((hitflag == 0) || (hitflag == 2))
+	if (hitstate == HITSTATE::NORMAL || hitstate == HITSTATE::INVINCIBLE)
 	{
-		CGameMain::Stage->Scroll(true,x,speed);
+		CGameMain::Stage->Scroll(true, x, speed);
 
 		movecount++;
-
-
 		movedistance = movecount * -speed;
 	}
 	else
-		if (hitflag == 1)
-	{
-		CGameMain::Stage->Scroll(false, x, speed);
-	}
+		if (hitstate == HITSTATE::HIT)
+		{
+			CGameMain::Stage->Scroll(false, x, speed);
+		}
 
-	//x = scrollX;
-
-	if (x >= 3000)
+	if (x >= CGameMain::Stage->getgoalposition())
 	{
-		clearflag = 1;
+		is_clear = true;
 	}
 
 	disp_x = x + movedistance;
 
-
-	if (fallflag == 1)
+	if (is_fall == true)
 	{
 		fall = -64;
 	}
+
 	if (y < -240 + margin + fall)
 	{
-
 		y -= velocity_y;
-		if (fallflag == 1)
+		if (is_fall == true)
 		{
 			CGameMain::Stage->Scroll(false, x, speed);
-			//hitflag == 1;
 			palyer_alpha -= 0.05f;
 		}
 	}
 
 	if (palyer_alpha <= 0)
 	{
-		over = 1;
+		is_over = true;
 	}
 
-	if ((hitflag == 0) || (hitflag == 2))
+}
+
+void CPlayer::Jump()
+{
+	if (hitstate == HITSTATE::NORMAL || hitstate == HITSTATE::INVINCIBLE)
 	{
-
-		if (IsPushKey(GLFW_KEY_SPACE) && state != STATE::JUNP)
+		if (IsPushKey(GLFW_KEY_SPACE) && jumpstate != JUMPSTATE::JUNP)
 		{
-
- 			force = 26;
-			state = STATE::JUNP;
+			force = 20;
+			jumpstate = JUMPSTATE::JUNP;
 			jampse.Gain(0.5f);
 			jampse.Play();
 		}
-
 	}
-	velocity_y = -3.5f;
+	velocity_y = -4.0f;
 
-
-	if (state == STATE::JUNP)
+	if (jumpstate == JUMPSTATE::JUNP)
 	{
-		force--;
+		force -= 0.5f;
 		y += force;
-		if (!(fallflag == 1))
+		if (!is_fall)
 		{
 			if (y <= -240 + margin + 5)
 			{
 				force = 0;
 				velocity_y = 0;
 				y -= velocity_y;
-				state = STATE::NORMAL;
+				jumpstate = JUMPSTATE::NORMAL;
 			}
 		}
 		else
 		{
 			force = 0;
-
 			velocity_y = velocity_y / 10;
 		}
-
-
 	}
-
 	y += velocity_y;
-
-	//if (movecount == 1)
-	//{
-	//	state = STATE::NORMAL;
-	//}
-
 }
-
 
 void CPlayer::Collision()
 {
-
-
-	fallcollisionflag = 0;
+	fallcollisionflag = false;
 	for (int i = 0; i < 6; i++)
 	{
 		if (Collision::IsHit(x + movedistance, y, width, height,
 			CGameMain::Stage->fall[i] + CGameMain::Stage->width, CGameMain::Stage->y,
 			CGameMain::Stage->width, CGameMain::Stage->height))
 		{
-			fallcollisionflag = 1;
+			fallcollisionflag = true;
 		}
 		if (Collision::IsHit(x + movedistance, y, width - width, height,
 			CGameMain::Stage->fall[i], CGameMain::Stage->y, CGameMain::Stage->width,
-			CGameMain::Stage->height) & (fallcollisionflag == 0))
+			CGameMain::Stage->height) & (fallcollisionflag == false))
 		{
-			fallflag = 1;
-			state = STATE::JUNP;
+			is_fall = true;
+			jumpstate = JUMPSTATE::JUNP;
 		}
 	}
 
-
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < CGameMain::Enemy->enmeynumber; i++)
 	{
-		if (hitcount == 0)
-			if (Collision::IsHit(x + movedistance, y, width, height,
-				CGameMain::Enemy->enemy[i].x(), CGameMain::Enemy->enemy[i].y(), CGameMain::Enemy->width, CGameMain::Enemy->height))
-			{
-				hitflag = 1;
-				//hitlost = 1;
-			}
+		if (Collision::IsHit(x + movedistance, y, width, height,
+			CGameMain::Enemy->enemy[i].x(), CGameMain::Enemy->enemy[i].y(),
+			CGameMain::Enemy->width, CGameMain::Enemy->height))
+		{
+			is_hit_enemy = true;
+		}
 	}
-
 
 	if (Collision::IsHit(x + movedistance, y, width, height,
-		CGameMain::Wall->disp_x, CGameMain::Wall->y, CGameMain::Wall->width / 2, CGameMain::Wall->height))
+		CGameMain::Wall->disp_x, CGameMain::Wall->y,
+		CGameMain::Wall->width / 2, CGameMain::Wall->height))
 	{
-		over = 1;
+		is_over = true;
 	}
 
-
-	if (hitflag == 1)
+	if (is_hit_enemy && hitstate == HITSTATE::NORMAL)
 	{
-		hitfear = 1;
+		hitstate = HITSTATE::HIT;
+	}
+
+}
+
+void CPlayer::HitStop()
+{
+	if (hitstate == HITSTATE::HIT)
+	{
+		hitfear = true;
 		hitcount++;
 		if (hitcount >= hittime)
 		{
 			hitcount = 0;
-			hitflag = 2;
-			wallhitflag = 0;
-			hitfear = 2;
+			hitstate = HITSTATE::INVINCIBLE;
+			wallenemyhitflag = false;
+			hitfear = false;
 		}
-
 	}
+}
 
-	if (hitflag == 2)
+void CPlayer::Invincible()
+{
+	if (hitstate == HITSTATE::INVINCIBLE)
 	{
 		hitcount++;
 		if (hitcount >= invincibilitytime)
 		{
 			hitcount = 0;
-			hitflag = 0;
+			hitstate = HITSTATE::NORMAL;
+			is_hit_enemy = false;
 		}
 	}
-	//if (y <= -240)
-	//{
-	//	over = 1;
-	//}
 }
-
-
 
 void CPlayer::Update()
 {
 	Move();
+	Jump();
 	Collision();
-
+	HitStop();
+	Invincible();
 }
 
 void CPlayer::Draw()
 {
-
-	if (state == STATE::NORMAL)
+	angle -= 0.5f;
+	if (jumpstate == JUMPSTATE::NORMAL)
 	{
 		if (hitcount == 0 || (hitcount / 2) % 2)
 		{
-			playerdraw.DrawTextureBox(disp_x, y, 50, 80, 133, 19, 344, 307, Color(1, 1, 1, palyer_alpha));
-			ran.DrawTextureBox(disp_x, y - 25, 50, 50, 131, 99, 226, 257, Color(1, 1, 1, palyer_alpha)/*, angle, Vec2f(1, 1), Vec2f(25, 25)*/);
+			playerdraw.DrawTextureBox(disp_x - 20, y, 50, 80, 133, 19, 344, 307, Color(1, 1, 1, palyer_alpha));
+			ran.DrawTextureBox(disp_x, y, 50, 50, 131, 99, 226, 257, Color(1, 1, 1, palyer_alpha), angle, Eigen::Vector2f(1, 1), Eigen::Vector2f(25, 25));
 		}
 	}
-	if (state == STATE::JUNP)
+	if (jumpstate == JUMPSTATE::JUNP)
 	{
-         		jamp.DrawTextureBox(disp_x, y, 50, 110, 126, 13, 356, 408, Color(1, 1, 1, palyer_alpha));
+		jamp.DrawTextureBox(disp_x - 20, y, 50, 110, 126, 13, 356, 408, Color(1, 1, 1, palyer_alpha));
 	}
-
 }
-

@@ -40,7 +40,7 @@ Media::~Media()
 }
 
 //バッファの処理
-void  Media::Buffer(Wav wavfile)
+void  Media::Buffer(Wav &wavfile)
 {
 	alGenBuffers(1, &buffer_id);
 

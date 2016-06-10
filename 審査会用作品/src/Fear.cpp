@@ -30,8 +30,7 @@ void CFear::Move()
 
 void CFear::Gauge()
 {
-//	if (CGameMain::Player->hitflag == 2)
-	if (CGameMain::Player->hitfear == 2)
+	if (CGameMain::Player->hitfear == false)
 		fearflag = 0;
 	
 
@@ -41,7 +40,7 @@ void CFear::Gauge()
 		gaugeup = 0;
 	}
 
-	if (CGameMain::Player->hitfear == 1)
+	if (CGameMain::Player->hitfear == true)
 	{
 
 		if (fearflag == 0)
@@ -52,7 +51,7 @@ void CFear::Gauge()
 		
 	}
 
-	if (CGameMain::Player->hitflag == 0)
+	if (CGameMain::Player->hitstate == CPlayer::HITSTATE::NORMAL)
 	{
 		cooltime -= 0.5;
 
