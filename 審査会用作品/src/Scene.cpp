@@ -15,7 +15,7 @@ CScene::CScene()
 	Rule = new CRule();
 	Door = new CDoor();
 	Clear = new CClear();
-	scene = 2;
+	scene = Scene::TITLE;
 	bgmflag = 0;
 }
 
@@ -43,100 +43,91 @@ void CScene::Update()
 {
 	switch (scene)
 	{
-	case 0:
+	case GAMEMAIN:
 
 
 		GameMain->Update();
 		if (CGameMain::Player->is_over == true)
 		{
-			scene = 1;
+			scene = GAMEOVER;
 
 		}else
 		if (CGameMain::Player->is_clear == true)
 		{
-			//GameMain.reset();
-
 			delete GameMain;
  			GameMain = new CGameMain();
-			scene = 4;
+			scene = CLEAR;
 		}
 
 
 		break;
-	case 1:
+	case GAMEOVER:
 	{
-
 			  bgmflag = 1;
-
 			  GameOver->selected_title = 0;
 			  GameOver->Update();
 
 			  if (CGameMain::Player->is_over == 0)
 			  {
 
-				  scene = 0;
+				  scene = GAMEMAIN;
 				  delete GameMain;
 				  GameMain = new CGameMain();
 
 			  }
 			  if (GameOver->selected_title == 1)
 			  {
-				  scene = 2;
+				  scene = TITLE;
 			  }
-			  /*if (bgmflag == 1)
-			  {
-			  delete GameMain;
-
-			  }*/
 	}
 		break;
-	case 2:
+	case TITLE:
 	{
 			  Title->selected_game = 0;
 			  Title->Update();
 			  if (Title->selected_game == 1)
 			  {
-				  scene = 0;
+				  scene = GAMEMAIN;
 				  delete GameMain;
 				  GameMain = new CGameMain();
 			  }
 			  if (Title->selected_rule == 1)
 			  {
-				  scene = 3;
+				  scene = RULE;
 			  }
 
 	}
 		break;
-	case 3:
+	case RULE:
 	{
 			  Title->selected_rule = 0;
 			  Rule->Update();
 
 			  if (Rule->rule_draw >= 1)
 			  {
-				  scene = 2;
+				  scene = TITLE;
 				  Rule->rule_draw = 0;
 			  }
 	}
 		break;
-	case 4:
+	case DOOR:
 	{
 			  Door->Update();
 
 
 			  if (Door->selected_door == 1)
 			  {
-				  scene = 5;
+				  scene = CLEAR;
 			  }
 	}
 		break;
-	case 5:
+	case CLEAR:
 	{
 			  Clear->Update();
 			  if (Clear->selected_clear == 1)
 			  {
 
-				  scene = 2;
+				  scene = TITLE;
 			  }
 	}
 		break;
@@ -148,23 +139,23 @@ void CScene::Draw()
 {
 	switch (scene)
 	{
-	case 0:
+	case GAMEMAIN:
 		GameMain->Draw();
 		break;
-	case 1:
+	case GAMEOVER:
 
 		GameOver->Draw();
 		break;
-	case 2:
+	case TITLE:
 		Title->Draw();
 		break;
-	case 3:
+	case RULE:
 		Rule->Draw();
 		break;
-	case 4:
+	case DOOR:
 		Door->Draw();
 		break;
-	case 5:
+	case CLEAR:
 		Clear->Draw();
 		break;
 	}

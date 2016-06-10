@@ -14,11 +14,8 @@ public:
 	~CWall();
 
 	void Move();
-	void Collision();
 	void Draw();
 	void Update();
 
 	float screenspeed; //実際の移動スピード
-	
-
 };

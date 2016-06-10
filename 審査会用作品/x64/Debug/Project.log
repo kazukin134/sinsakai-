@@ -1,0 +1,42 @@
+﻿2016/06/10 19:53:06 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\sinsakai-\審査会用作品\Project.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt src\Clear.cpp
+         Clear.cpp
+     1>c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:Windows\lib glfw3d.lib OpenGL32.lib OpenAL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.lib" /MACHINE:X64 x64\Debug\Main.obj
+         x64\Debug\Clear.obj
+         x64\Debug\Collision.obj
+         x64\Debug\Distance.obj
+         x64\Debug\Door.obj
+         x64\Debug\Enemy.obj
+         x64\Debug\Fear.obj
+         x64\Debug\GameMain.obj
+         x64\Debug\GameOver.obj
+         x64\Debug\Audio.obj
+         x64\Debug\DrawBox.obj
+         x64\Debug\Input.obj
+         x64\Debug\Key.obj
+         x64\Debug\Matrix.obj
+         x64\Debug\Texture.obj
+         x64\Debug\wav.obj
+         x64\Debug\Player.obj
+         x64\Debug\Prologue.obj
+         x64\Debug\Rule.obj
+         x64\Debug\Scene.obj
+         x64\Debug\Stage.obj
+         x64\Debug\StartCount.obj
+         x64\Debug\Title.obj
+         x64\Debug\Wall.obj
+         Project.vcxproj -> C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe
+     1>プロジェクト "C:\Users\vantan\Desktop\sinsakai-\審査会用作品\Project.vcxproj" (Build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:01.42

@@ -12,7 +12,6 @@ public:
 
 	void Draw();
 	void Update();
-	void Move();
 	void Gauge();
 
 	float feargauge;	//Œ»İ‚ÌƒQ[ƒW‚Ì—Ê

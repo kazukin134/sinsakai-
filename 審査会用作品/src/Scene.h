@@ -29,14 +29,19 @@ public:
 	void Main();
 
 	float bgmflag;
-	int scene;
 
-	//std::unique_ptr<CGameMain> GameMain;
-	//std::unique_ptr<CGameOver> GameOver;
-	//std::unique_ptr<CTitle> Title();
-	//std::unique_ptr<CRule> Rule;
-	//std::unique_ptr<CDoor> Door;
-	//std::unique_ptr<CClear> Clear;
+	enum Scene
+	{
+		TITLE,
+		GAMEMAIN,
+		CLEAR,
+		RULE,
+		DOOR,
+		GAMEOVER
+	};
+
+	Scene scene;
+
 
 	static CGameOver *GameOver;
 	static CGameMain *GameMain;

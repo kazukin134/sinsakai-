@@ -9,7 +9,7 @@ CEnemy::CEnemy() : enemy01("res/raw/obake.raw",512,512)
 {
 
 	x = 500.0;
-	startY = 0;//150;
+	startY = 0;
 	y =  -240;
 	width = 50;
 	height = 50;
@@ -22,7 +22,7 @@ CEnemy::CEnemy() : enemy01("res/raw/obake.raw",512,512)
 	enemy2 = this->x + 600;
 	angle = 0.0;
 	angle_y = 0.0;
-	alpha = 0.5f;
+	alpha = 1.0f;
 }
 
 CEnemy::~CEnemy()
@@ -37,9 +37,15 @@ void CEnemy::Collision()
 
 void CEnemy::Move()
 {
-
+	static int count;
 	//angle_y = angle;
-	wave = 0;//std::sin(angle_y) * 25.0;
+	wave = 0;
+	count++;
+	alpha -= std::sin(count / 12)/8;
+	if (alpha <= 0.1f)
+	{
+		alpha = 0.1f;
+	}
 	//angle_y += 0.04f;
 
 

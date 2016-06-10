@@ -14,57 +14,40 @@ CWall::CWall() :wall("res/raw/obake02.raw", 512, 512)
 	velocity_y = 0;
 	scrollX = x;
 	stage_x = x;
-	
 	speed = 3.2f;
 	screenspeed = 1.5f;
 	movecount = 0;
-	
 }
 
-CWall::~CWall()
-{
-
-}
+CWall::~CWall(){}
 
 void CWall::Move()
 {
-	
 	movecount++;
 
 	if (scrollX > 0)
 	{
 		scrollX += x;
-		scrollX += velocity_x ;
-		
-	}             
-
+		scrollX += velocity_x;
+	}
 
 	velocity_x = speed;
 
 	if (scrollX < 0)
 	{
 		x += velocity_x;
-
 	}
-	
 
 	disp_x = x - screenspeed * movecount;
-}
-
-void CWall::Collision()
-{
-
 }
 
 void CWall::Update()
 {
 	Move();
-	Collision();
 }
 
 void CWall::Draw()
 {
-	wall.DrawTextureBox(disp_x, y-150, width, height - 150, 127, 0, 357, 402, Color(1, 1, 1,1));
-	//drawFillBox(disp_x, y, width, height,  Color(0.5, 1, 0));
+	wall.DrawTextureBox(disp_x, y - 150, width, height - 150, 127, 0, 357, 402, Color(1, 1, 1, 0.7f));
 }
 

@@ -4,9 +4,8 @@
 #include "Enemy.h"
 #include "Fear.h"
 
-CFear::CFear()// : player("res/ct.png")
+CFear::CFear()
 {
-
 	x = -350.0;
 	y = 150.0;
 	width = 150;
@@ -17,16 +16,7 @@ CFear::CFear()// : player("res/ct.png")
 	gaugeup = 0;
 }
 
-
-CFear::~CFear()
-{
-
-}
-
-void CFear::Move()
-{
-
-}
+CFear::~CFear(){}
 
 void CFear::Gauge()
 {
@@ -42,19 +32,16 @@ void CFear::Gauge()
 
 	if (CGameMain::Player->hitfear == true)
 	{
-
 		if (fearflag == 0)
 		{	
 			gaugeup += 70;
 			fearflag = 1;
-		}
-		
+		}	
 	}
 
 	if (CGameMain::Player->hitstate == CPlayer::HITSTATE::NORMAL)
 	{
 		cooltime -= 0.5;
-
 	}
 	if (feargauge <= gaugemax)
 		feargauge = gaugeup + cooltime;
@@ -65,24 +52,16 @@ void CFear::Gauge()
 	{
 		CGameMain::Player->palyer_alpha -= 0.02f;
 	}
-//		CGameMain::Player->over = 1;
-
-
-
 }
 
 void CFear::Update()
 {
-	Move();
 	Gauge();
-
 }
 
 void CFear::Draw()
 {
+	DrawFillBox(x-2.5, y-2.5, width+5, height+5, Color(0, 1, 1, 1));
 	DrawFillBox(x, y, width, height, Color(0.5, 0.5, 0.5, 1));
-	
 	DrawFillBox(x, y, feargauge, height, Color(1, 0, 0, 1));
-	
-	//DrawBox(x, y, width, height,0.8f, Color(0, 1, 0));
 }

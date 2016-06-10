@@ -11,12 +11,9 @@ class CStage :public Object
 	Texture door;
 	Texture drawfall;
 
-
 	Media standardbgm;
 	Media wallbgm;
-
 	float goalposition;
-
 
 public:
 	CStage();
@@ -28,7 +25,6 @@ public:
 	void FallTrap();
 
 	float seflag;
-	
 	float fallx;		//—‚Æ‚µŒŠ‚ÌxÀ•W
 
 	static const int fall_number  = 5;
@@ -38,7 +34,6 @@ public:
 	{
 		return goalposition;
 	};
-
 
 };
 

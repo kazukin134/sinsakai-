@@ -53,7 +53,6 @@ void Texture::DrawTextureBox(float x, float y, float width, float height,
 	Color &color)
 {
 
-
 	const float end_x = x + width;
 	const float end_y = y + height;
 
@@ -103,26 +102,6 @@ void Texture::DrawTextureBox(float x, float y, float width, float height,
 	float texture_x, float texture_y, float texture_width, float texture_height,
 	Color &color, float angle, const Eigen::Vector2f& scaling, const Eigen::Vector2f& origin)
 {
-	//float texture_width_half = texture_width / 2;
-	//float texture_height_half = texture_height / 2;
-
-
-	//// ‰ñ“]AŠg‘åk¬‚Ìs—ñ‚ğ¶¬
-	//auto matrix = transformMatrix2D(angle_rad,
-	//	Vec3f(start_x, start_y, 0.0f),
-	//	Vec3f(scaling.x(), scaling.y(), 1.0f));
-
-	//// s—ñ‚ğOpenGL‚Éİ’è
-	//glPushMatrix();
-	//glMultMatrixf(matrix.data());
-
-
-	//texture_x = ((texture_width - texture_width_half) * cos(angle)  - (texture_height - texture_height_half) * sin(angle)+(texture_width_half));
-	//texture_y = ((texture_width - texture_width_half) * sin(angle) + (texture_height - texture_height_half) * cos(angle) + (texture_height_half));
-
-	//texture_width = ((texture_x - texture_width_half) * cos(-angle) - (texture_y - texture_height_half) * sin(-angle) + (texture_width_half));
-	//texture_height = ((texture_x - texture_width_half) * sin(-angle) + (texture_y - texture_height_half) * cos(-angle) +(texture_height_half));
-
     
 	//// ‰ñ“]AŠg‘åk¬‚Ìs—ñ‚ğ¶¬
 	auto matrix = transformMatrix2D(angle,
@@ -132,7 +111,6 @@ void Texture::DrawTextureBox(float x, float y, float width, float height,
 	//// s—ñ‚ğOpenGL‚Éİ’è
 	glPushMatrix();
 	glMultMatrixf(matrix.data());
-	//Quatf r(Eigen::AngleAxisf(angle, Eigen::Vector3f::UnitZ()));
 
 	DrawTextureBox(-origin.x(), -origin.y(), width, height,
 		 texture_x,  texture_y,  texture_width,  texture_height,

@@ -15,24 +15,24 @@ CClear::~CClear()
 
 void CClear::Update()
 {
-	//if (!clearbgm.isPlaying())
-	//{
-	//	clearbgm.gain(0.05f);
-	//	clearbgm.looping(true);
-	//	clearbgm.play();
-	//}
+	if (!clearbgm.IsPlaying())
+	{
+		clearbgm.Gain(0.5f);
+		clearbgm.Looping(true);
+		clearbgm.Play();
+	}
 	if (IsPushKey(GLFW_KEY_ENTER))
 	{
 		selected_clear = 1;
-	//	clearbgm.looping(false);
-	//	clearbgm.stop();
+		clearbgm.Looping(false);
+		clearbgm.Stop();
 	}
 }
 
 void CClear::Draw()
 {
 	
-	drawclear.DrawTextureBox(-320, -240, 620, 480, 0, 0, 170, 222, Color(1, 1, 1,1));
+	drawclear.DrawTextureBox(-320, -240, 640, 480, 0, 0, 170, 222, Color(1, 1, 1,1));
 	 logo.DrawTextureBox(-150, 0, 300, 80, 3, 83, 628, 78,Color(1, 1, 1,1));
 	//drawFillBox(0, 0, 50, 50, Color(0.5, 0.5, 1));
 
