@@ -15,6 +15,7 @@ class CPlayer : public Object{
 
 	float invincibilitytime; //“G‚É“–‚½‚Á‚½Œã‚Ì–³“GŽžŠÔ
 	float angle; //‰æ‘œ‚Ì‰ñ“]—p
+	float homo;	 //‚Ù‚à—p
 
 public:
 	CPlayer();

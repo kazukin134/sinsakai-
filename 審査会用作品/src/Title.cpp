@@ -9,66 +9,70 @@ rule("res/raw/rule.raw",512,128),
 end("res/raw/end.raw",256,128),
 titlebgm("res/wav/titleb.wav")
 {
-	//audio;
-	//titlebgm = Media("res/wav/jump_2.wav");
-//	titlebgm.Play();
-	//titlebgm.Gain(1.0f);
 	x = 0;
 	y = 0;
 	width = 100;
 	height = 50;
-	title = 0;
+	title = SELECTTITLE::GAME;
 	choice_game = 0;
 	choice_rule = 50;
 	selected_game = 0;
 	selected_rule = 0;
 	selected_end = 0;
+	titlecount = 0;
 }
 
-
-CTitle::~CTitle()
-{
-
-}
+CTitle::~CTitle(){}
 
 void CTitle::Update()
 {
 	if (IsPushKey(GLFW_KEY_DOWN))
 	{
-		title++;
-		if (title > 2)
+		titlecount++;
+		if (titlecount > 2)
 		{
-			title = 0;
+			titlecount = 0;
 		}
 	}
 	if (IsPushKey(GLFW_KEY_UP))
 	{
-		title--;
-		if (title < 0)
+		titlecount--;
+		if (titlecount < 0)
 		{
-			title = 2;
+			titlecount = 2;
 		}
+	}
+
+	if (titlecount == 0)
+	{
+		title = SELECTTITLE::GAME;
+	}else
+	if (titlecount == 1)
+	{
+		title = SELECTTITLE::RULE;
+	}
+	else
+	if (titlecount == 2)
+	{
+		title = SELECTTITLE::END;
 	}
 
 	switch (title)
 	{
-	case 0:
-	{
+	case SELECTTITLE::GAME:
+	
 			  choice_game = 0;
 			  choice_rule = 50;
 			  choice_end = 50;
-
 
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
 				  selected_game = 1;
 			  }
 
-	}
 		break;
 
-	case 1:
-	{
+	case SELECTTITLE::RULE:
 
 			  choice_game = 50;
 			  choice_rule = 0;
@@ -78,11 +82,10 @@ void CTitle::Update()
 			  {
 				  selected_rule = 1;
 			  }
-	}
 		break;
-	case 2:
 
-	{
+	case SELECTTITLE::END:
+
 			  choice_game = 50;
 			  choice_rule = 50;
 			  choice_end = 0;
@@ -91,10 +94,9 @@ void CTitle::Update()
 			  {
 				  selected_end = 1;
 			  }
-	}
+
 		break;
 	}
-
 
 	if (selected_rule == 0 && selected_game == 0)
 	if (!(titlebgm.IsPlaying()))
@@ -102,7 +104,6 @@ void CTitle::Update()
 		titlebgm.Looping(true);
 		titlebgm.Play();
 		titlebgm.Gain(0.5f);
-
 	}
 	if (selected_rule == 1 || selected_game == 1)
 	{
@@ -113,10 +114,7 @@ void CTitle::Update()
 
 void CTitle::Draw()
 {
-	
-	
 	title01.DrawTextureBox(-320, -240, 800, 500, 0, 45, 620, 350, Color(1, 1, 1,1));
-	//drawFillBox(-150, 120, 300, 80, Color(1, 1, 1, 0.6));
 	titlelogo.DrawTextureBox(-150, 120, 300, 80, 0, 0, 330, 80,  Color(1, 1, 1,1));
 	DrawFillBox(x + choice_game, y, 100, 60, Color(1, 1, 0,1));
 	start.DrawTextureBox(x + choice_game, y, 100, 60, 0, 0, 256, 64, Color(1, 0.4, 0,1));

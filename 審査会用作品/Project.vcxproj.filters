@@ -98,9 +98,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\lib\Color.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="src\lib\DrawBox.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -171,6 +168,9 @@
       <Filter>lib\h</Filter>
     </ClInclude>
     <ClInclude Include="src\lib\Matrix.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\Color.h">
       <Filter>lib\h</Filter>
     </ClInclude>
   </ItemGroup>

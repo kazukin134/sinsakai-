@@ -15,10 +15,8 @@ public:
 	~CEnemy();
 	void Draw();
 	void Update();
-	void Collision();
 	void Move();
 
-	
 	float startscroll;		//スクロールするための処理
 	float enemy2;			//2体目の敵のx座標
 
@@ -27,5 +25,4 @@ public:
 	float angle;
 	float wave;
 	float angle_y;
-
 };

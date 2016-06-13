@@ -12,9 +12,15 @@ class CTitle : public Object
 	Texture start;
 	Texture rule;
 	Texture end;
-	//Audio audio;
+
 	Media titlebgm;
 	
+	enum SELECTTITLE
+	{
+		GAME,
+		RULE,
+		END,
+	};
 
 public:
 	CTitle();
@@ -23,7 +29,8 @@ public:
 	void Update();
 	void Draw();
 
-	int title;
+	int titlecount;
+	SELECTTITLE title;
 	float selected_game;
 	float selected_rule;
 	float selected_end;

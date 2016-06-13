@@ -7,7 +7,6 @@
 
 CEnemy::CEnemy() : enemy01("res/raw/obake.raw",512,512)
 {
-
 	x = 500.0;
 	startY = 0;
 	y =  -240;
@@ -25,20 +24,11 @@ CEnemy::CEnemy() : enemy01("res/raw/obake.raw",512,512)
 	alpha = 1.0f;
 }
 
-CEnemy::~CEnemy()
-{
-	
-}
-
-void CEnemy::Collision()
-{
-
-}
+CEnemy::~CEnemy(){}
 
 void CEnemy::Move()
 {
 	static int count;
-	//angle_y = angle;
 	wave = 0;
 	count++;
 	alpha -= std::sin(count / 12)/8;
@@ -46,8 +36,6 @@ void CEnemy::Move()
 	{
 		alpha = 0.1f;
 	}
-	//angle_y += 0.04f;
-
 
 	enemy[0] = Eigen::Vector2f(x + 100,y + 100);
 	enemy[1] = Eigen::Vector2f(x + 400,y + 200);
@@ -59,10 +47,8 @@ void CEnemy::Move()
 	enemy[7] = Eigen::Vector2f(x + 2400,y + 100);
 	enemy[8] = Eigen::Vector2f(x + 2600, y + 200);
 
-
 	if (!(CGameMain::Player->hitstate == CPlayer::HITSTATE::HIT) && !(CGameMain::Player->is_fall == true))
 	{
-
 		if (startscroll == 0)
 		{  
 			scrollX += x;
@@ -70,28 +56,22 @@ void CEnemy::Move()
 			startscroll = 1;
 		}
 
-
 		velocity_x = speed;
-
 		if (scrollX > 0)
 		{
 			x -= velocity_x;
-
 		}
 	}
-
 }
 
 void CEnemy::Update()
 {
 	Collision();
 	Move();
-
 }
 
 void CEnemy::Draw()
 {
-
 	for (int i = 0; i < enmeynumber; i++)
 	{
 		enemy01.DrawTextureBox(enemy[i].x(), enemy[i].y(), width, height, 31, 0, 314, 403, Color(1, 1, 1, alpha));
