@@ -5,6 +5,7 @@
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 
+
 #define _USE_MATH_DEFINES
 
 #include "wav.hpp"
@@ -45,7 +46,7 @@ public:
 	~Media();
 
 	//バッファの処理
-	void Buffer(Wav &wavfile);
+	void Buffer(const Wav &wavfile);
 
 	//ソースの処理
 	void Source();

@@ -1,164 +1,31 @@
-﻿2016/06/11 17:49:40 にビルドを開始しました。
-     1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\Project.vcxproj" (Build ターゲット)。
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Iinclude /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Main.cpp src\Clear.cpp src\Distance.cpp src\Door.cpp src\Enemy.cpp src\Fear.cpp src\GameMain.cpp src\GameOver.cpp src\Player.cpp src\Rule.cpp src\Scene.cpp src\Stage.cpp src\StartCount.cpp src\Title.cpp src\Wall.cpp src\lib\DrawBox.cpp src\lib\Texture.cpp
-         Main.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY' : マクロが再定義されました。
-                 C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\include\GLFW/glfw3.h(96) : 'APIENTRY' の前の定義を確認してください
-     1>Main.cpp(49): warning C4244: '引数' : 'float' から 'GLint' への変換です。データが失われる可能性があります。
-     1>Main.cpp(67): warning C4244: '引数' : 'float' から 'int' への変換です。データが失われる可能性があります。
-     1>Main.cpp(59): warning C4101: 'stream' : ローカル変数は 1 度も使われていません。
-         コードを生成中...
-         コンパイル中...
-         Texture.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         DrawBox.cpp
-         Wall.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Title.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Title.cpp(120): warning C4305: '引数' : 'double' から 'float' へ切り詰めます。
-         StartCount.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Stage.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Stage.cpp(26): warning C4305: '=' : 'double' から 'float' へ切り詰めます。
-     1>src\Stage.cpp(98): warning C4305: '引数' : 'double' から 'const float' へ切り詰めます。
-         Scene.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Rule.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Player.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Player.cpp(21): warning C4305: '=' : 'double' から 'float' へ切り詰めます。
-         GameOver.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         GameMain.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Fear.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Fear.cpp(64): warning C4244: '引数' : 'double' から 'float' への変換です。データが失われる可能性があります。
-         Enemy.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Enemy.cpp(20): warning C4305: '=' : 'double' から 'float' へ切り詰めます。
-     1>src\Enemy.cpp(39): warning C4244: '-=' : 'double' から 'float' への変換です。データが失われる可能性があります。
-         Door.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-     1>src\Door.cpp(30): warning C4554: '&' : 演算子の優先順位に問題があります。かっこを使用して優先順位を明確にしてください
-         Distance.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         Clear.cpp
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-     1>c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-                 c:\users\vantan\desktop\sinsakai--master\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-         コードを生成中...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\x64\Debug\Project.exe" /INCREMENTAL /NOLOGO /LIBPATH:Windows\lib glfw3d.lib OpenGL32.lib OpenAL32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\x64\Debug\Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"mainCRTStartup" /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\x64\Debug\Project.lib" /MACHINE:X64 x64\Debug\Main.obj
-         x64\Debug\Clear.obj
-         x64\Debug\Collision.obj
-         x64\Debug\Distance.obj
-         x64\Debug\Door.obj
-         x64\Debug\Enemy.obj
-         x64\Debug\Fear.obj
-         x64\Debug\GameMain.obj
-         x64\Debug\GameOver.obj
-         x64\Debug\Audio.obj
-         x64\Debug\DrawBox.obj
-         x64\Debug\Input.obj
-         x64\Debug\Key.obj
-         x64\Debug\Matrix.obj
-         x64\Debug\Texture.obj
-         x64\Debug\wav.obj
-         x64\Debug\Player.obj
-         x64\Debug\Prologue.obj
-         x64\Debug\Rule.obj
-         x64\Debug\Scene.obj
-         x64\Debug\Stage.obj
-         x64\Debug\StartCount.obj
-         x64\Debug\Title.obj
-         x64\Debug\Wall.obj
-         Project.vcxproj -> C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\x64\Debug\Project.exe
-     1>プロジェクト "C:\Users\vantan\Desktop\sinsakai--master\審査会用作品\Project.vcxproj" (Build ターゲット) のビルドが完了しました。
-
-ビルドに成功しました。
-
-経過時間 00:00:23.72
+﻿  Main.cpp
+c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': マクロが再定義されました。
+  c:\users\vantan\desktop\sinsakai-\審査会用作品\include\glfw\glfw3.h(85): note: 'APIENTRY' の以前の定義を確認してください
+c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(49): warning C4244: '引数': 'float' から 'GLint' への変換です。データが失われる可能性があります。
+c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(67): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(59): warning C4101: 'stream': ローカル変数は 1 度も使われていません。
+  コードを生成中...
+  コンパイル中...
+  Audio.cpp
+  Wall.cpp
+  Title.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\title.cpp(120): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
+  Stage.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\stage.cpp(26): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\stage.cpp(98): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
+  Scene.cpp
+  Player.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\player.cpp(21): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+  GameOver.cpp
+  GameMain.cpp
+  Fear.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\fear.cpp(64): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Enemy.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\enemy.cpp(19): warning C4305: '=': 'double' から 'float' へ切り詰めます。
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\enemy.cpp(34): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
+  Door.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\src\door.cpp(30): warning C4554: '&': 演算子の優先順位に問題があります。かっこを使用して優先順位を明確にしてください
+  Distance.cpp
+  Clear.cpp
+  コードを生成中...
+  Project.vcxproj -> C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe

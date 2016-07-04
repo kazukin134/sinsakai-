@@ -40,7 +40,7 @@ Media::~Media()
 }
 
 //バッファの処理
-void  Media::Buffer(Wav &wavfile)
+void  Media::Buffer(const Wav &wavfile)
 {
 	alGenBuffers(1, &buffer_id);
 
@@ -89,10 +89,10 @@ void Media::Gain(const float value)
 		volume = 1.0f;
 	}
 	else
-	if (volume < 0.0f)
-	{
-		volume = 0.0f;
-	}
+		if (volume < 0.0f)
+		{
+			volume = 0.0f;
+		}
 
 	alSourcef(source_id, AL_GAIN, volume);
 };
@@ -100,7 +100,7 @@ void Media::Gain(const float value)
 //音のループするかどうか
 void Media::Looping(const bool value)
 {
-	alSourcei(source_id, AL_LOOPING, value ? true : false);
+	alSourcei(source_id, AL_LOOPING, value);
 };
 
 //音が今流れているかどうか
