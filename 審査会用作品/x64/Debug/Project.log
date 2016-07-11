@@ -1,8 +1,0 @@
-﻿  StartCount.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
-          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
-          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
-c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
-          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
-          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
-  Project.vcxproj -> C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe
