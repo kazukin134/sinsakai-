@@ -2,11 +2,11 @@
 
 
 CTitle::CTitle()
-:title01("res/raw/2480019i.raw",1024,512),
-titlelogo("res/raw/titlelogo01.raw",512,128),
-start("res/raw/suta-to.raw",256,128),
-rule("res/raw/rule.raw",512,128),
-end("res/raw/end.raw",256,128),
+:title01("res/png/2480019i.png",1024,512),
+titlelogo("res/png/titlelogo01.png",512,128),
+start("res/png/suta-to.png",256,128),
+rule("res/png/rule.png",512,128),
+end("res/png/end.png",256,128),
 titlebgm("res/wav/titleb.wav")
 {
 	x = 0;

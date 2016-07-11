@@ -1,9 +1,9 @@
 #pragma once
 #include "Object.h"
-#include "lib\Texture.h"
 #include "lib\Key.h"
 #include "lib\DrawBox.h"
 #include "lib\Audio.h"
+#include "lib\Texture.h"
 
 class CTitle : public Object
 {

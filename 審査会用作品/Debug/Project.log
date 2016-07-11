@@ -1,1 +1,116 @@
-﻿LINK : fatal error LNK1104: ファイル 'glfw3d.lib' を開くことができません。
+﻿2016/07/11 14:03:36 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "C:\Users\vantan\Desktop\霊操の館\霊操の館\霊操の館\審査会用作品\Project.vcxproj" (Build ターゲット)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Iinclude /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp src\Clear.cpp src\Distance.cpp src\Door.cpp src\Enemy.cpp src\Fear.cpp src\GameMain.cpp src\GameOver.cpp src\Player.cpp src\Scene.cpp src\Stage.cpp src\Title.cpp src\Wall.cpp src\lib\Audio.cpp
+         Audio.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Wall.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Title.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Stage.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Scene.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Player.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         GameOver.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         GameMain.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Fear.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Enemy.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Door.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Distance.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Clear.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         Main.cpp
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+                 c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\include\eigen\src\geometry\arch\geometry_sse.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
+     1>c:\users\vantan\desktop\霊操の館\霊操の館\霊操の館\審査会用作品\src\lib\audio.h(5): fatal error C1083: include ファイルを開けません。'OpenAL/al.h':No such file or directory
+         コードを生成中...
+     1>プロジェクト "C:\Users\vantan\Desktop\霊操の館\霊操の館\霊操の館\審査会用作品\Project.vcxproj" (Build ターゲット) のビルドが終了しました -- 失敗。
+
+ビルドに失敗しました。
+
+経過時間 00:00:07.15

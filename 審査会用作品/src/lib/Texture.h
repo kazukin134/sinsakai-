@@ -1,4 +1,5 @@
 #pragma once
+
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <fstream>
@@ -8,6 +9,9 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include "Matrix.h"
+
+
+//#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
 class Texture
@@ -19,7 +23,7 @@ private:
 	int get_texture_height;
 
 public:
-	Texture(const std::string  file, int texture_width, int texture_height);
+	Texture(const std::string&  file, int texture_width, int texture_height);
 
 	~Texture();
 
@@ -36,7 +40,7 @@ public:
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 
-	void  setupTexture(const std::string  file, const int texture_width, const int texture_height);
+	void  setupTexture(const std::string&  file, const int texture_width, const int texture_height);
 
 	void DrawTextureBox(const float x, const float y,const float width,const float height,const float texture_x,const float texture_y,const float texture_width,const float texture_height,
 		 Color &color);

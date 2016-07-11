@@ -7,9 +7,9 @@
 
 
 CPlayer::CPlayer()
-	:playerdraw("res/raw/dassyu.raw", 512, 512),
-	ran("res/raw/gurugu.raw", 512, 512),
-	jamp("res/raw/hasiru.raw", 512, 512),
+	:playerdraw("res/png/dassyu.png", 512, 512),
+	ran("res/png/gurugu.png", 512, 512),
+	jamp("res/png/hasiru.png", 512, 512),
 	jampse("res/wav/jump_2.wav")
 {
 	palyer_alpha = 1.0f;

@@ -6,12 +6,11 @@
 #include "Scene.h"
 
 
-
 CStage::CStage():
-floor("res/raw/yuka.raw",1024,128),
-stage("res/raw/d0159655_162422320.raw",512,512),
-door("res/raw/door/door111.raw",256,256),
-drawfall("res/raw/22008C.raw",1024,1024),
+floor("res/png/yuka.png",1024,128),
+stage("res/png/d0159655_162422320.png",512,512),
+door("res/png/door/door111.png",256,256),
+drawfall("res/png/22008C.png",1024,1024),
 standardbgm("res/wav/standard.wav"),
 wallbgm("res/wav/wall.wav")
 {
@@ -27,13 +26,12 @@ wallbgm("res/wav/wall.wav")
 	fallx = 0;
 	seflag = 0;
 	goalposition = 3300;
+	fallx = stage_x - scrollX + startX;
 }
-
 
 CStage::~CStage()
 {
 }
-
 
 void CStage::Scroll(bool is_scroll, float &scrollX, float speed)
 {

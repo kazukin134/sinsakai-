@@ -1,15 +1,5 @@
+#pragma once
 #define _USE_MATH_DEFINES
-
-#include "src/lib/Input.h"
-#include "src/lib/DrawBox.h"
-#include "src/lib/Color.h"
-#include "src/lib/Texture.h"
-#include "src/Scene.h"
-#include "src/Stage.h"
-#include "src/lib/DrawBox.h"
-#include "src/Title.h"
-#include "src/lib/Audio.h"
-
 #include <GLFW/glfw3.h>
 #include <cstdlib>
 #include <windows.h>
@@ -19,6 +9,17 @@
 #include <vector>
 #include <Eigen/Core>
 #include <Eigen/Geometry>
+
+
+#include "src/lib/Input.h"
+#include "src/lib/DrawBox.h"
+#include "src/lib/Color.h"
+//#include "src/lib/Texture.h"
+#include "src/Scene.h"
+//#include "src/Stage.h"
+#include "src/lib/DrawBox.h"
+//#include "src/Title.h"
+#include "src/lib/Audio.h"
 
 
 class DbgStreambuf : public std::streambuf {

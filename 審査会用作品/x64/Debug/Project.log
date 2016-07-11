@@ -1,31 +1,8 @@
-﻿  Main.cpp
-c:\program files (x86)\windows kits\8.1\include\shared\minwindef.h(130): warning C4005: 'APIENTRY': マクロが再定義されました。
-  c:\users\vantan\desktop\sinsakai-\審査会用作品\include\glfw\glfw3.h(85): note: 'APIENTRY' の以前の定義を確認してください
-c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(49): warning C4244: '引数': 'float' から 'GLint' への変換です。データが失われる可能性があります。
-c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(67): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
-c:\users\vantan\desktop\sinsakai-\審査会用作品\main.cpp(59): warning C4101: 'stream': ローカル変数は 1 度も使われていません。
-  コードを生成中...
-  コンパイル中...
-  Audio.cpp
-  Wall.cpp
-  Title.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\title.cpp(120): warning C4305: '引数': 'double' から 'float' へ切り詰めます。
-  Stage.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\stage.cpp(26): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\stage.cpp(98): warning C4305: '引数': 'double' から 'const float' へ切り詰めます。
-  Scene.cpp
-  Player.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\player.cpp(21): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-  GameOver.cpp
-  GameMain.cpp
-  Fear.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\fear.cpp(64): warning C4244: '引数': 'double' から 'float' への変換です。データが失われる可能性があります。
-  Enemy.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\enemy.cpp(19): warning C4305: '=': 'double' から 'float' へ切り詰めます。
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\enemy.cpp(34): warning C4244: '-=': 'double' から 'float' への変換です。データが失われる可能性があります。
-  Door.cpp
-c:\users\vantan\desktop\sinsakai-\審査会用作品\src\door.cpp(30): warning C4554: '&': 演算子の優先順位に問題があります。かっこを使用して優先順位を明確にしてください
-  Distance.cpp
-  Clear.cpp
-  コードを生成中...
+﻿  StartCount.cpp
+c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<float,0>' : 複数の代入演算子が指定されています。
+          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(22) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<float,0>' の参照を確認してください
+          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(38) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,float,1>' の参照を確認してください
+c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/Quaternion.h(291): warning C4522: 'Eigen::Quaternion<double,0>' : 複数の代入演算子が指定されています。
+          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(63) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::Quaternion<double,0>' の参照を確認してください
+          c:\users\vantan\desktop\sinsakai-\審査会用作品\include\eigen\src/Geometry/arch/Geometry_SSE.h(109) : コンパイルされたクラスの テンプレート のインスタンス化 'Eigen::internal::quat_product<1,Derived,OtherDerived,double,1>' の参照を確認してください
   Project.vcxproj -> C:\Users\vantan\Desktop\sinsakai-\審査会用作品\x64\Debug\Project.exe

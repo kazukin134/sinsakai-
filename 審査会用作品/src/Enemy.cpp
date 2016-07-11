@@ -5,7 +5,7 @@
 #include "GameMain.h"
 
 
-CEnemy::CEnemy() : enemy01("res/raw/obake.raw",512,512)
+CEnemy::CEnemy() : enemy01("res/png/obake.png",512,512)
 {
 	x = 500.0;
 	startY = 0;
@@ -66,7 +66,7 @@ void CEnemy::Move()
 
 void CEnemy::Update()
 {
-	Collision();
+	//Collision();
 	Move();
 }
 

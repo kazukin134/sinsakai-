@@ -173,5 +173,8 @@
     <ClInclude Include="src\lib\Color.h">
       <Filter>lib\h</Filter>
     </ClInclude>
+    <ClInclude Include="src\lib\stb_image.h">
+      <Filter>lib\h</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

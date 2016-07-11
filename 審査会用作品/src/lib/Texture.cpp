@@ -1,7 +1,10 @@
 #include "Texture.h"
-#include "png.h"
 
-Texture::Texture(const std::string  file, int texture_width, int texture_height)
+//ヘッターでやると多重定義になるので注意!
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+Texture::Texture(const std::string&  file, int texture_width, int texture_height)
 {
 	glGenTextures(1, &texture_id);
 	setupTexture(file, texture_width, texture_height);
@@ -12,26 +15,27 @@ Texture::~Texture()
 	glDeleteTextures(1, &texture_id);
 }
 
-void Texture::setupTexture(const std::string  file, int texture_width, int texture_height)
+void Texture::setupTexture(const std::string&  file, int texture_width, int texture_height)
 {
 	get_texture_width = texture_width;
 	get_texture_height = texture_height;
 
-	std::ifstream fstr(file, std::ios::binary);
-	if (!fstr)return;
+	//std::ifstream fstr(file, std::ios::binary);
+	//if (!fstr)return;
 
-	const size_t file_size
-		= static_cast<size_t>(fstr.seekg(0, fstr.end).tellg());
-	fstr.seekg(0, fstr.beg);
+	//const size_t file_size
+	//	= static_cast<size_t>(fstr.seekg(0, fstr.end).tellg());
+	//fstr.seekg(0, fstr.beg);
 
-	std::vector<char> texture_buffer(file_size);
+	//std::vector<char> texture_buffer(file_size);
 
-	fstr.read(&texture_buffer[0], file_size);
+	//fstr.read(&texture_buffer[0], file_size);
 
-	//unsigned char* pixels;
+	unsigned char* pixels;
+	int bpp;
 
 	// ファイルを読み込み、画像データを取り出す
-//	pixels = stbi_load(file.c_str(), &texture_width, &texture_height, &bpp, 4);
+	pixels = stbi_load(file.c_str(), &texture_width, &texture_height, &bpp, 4);
 
 
 	glBindTexture(GL_TEXTURE_2D, texture_id);
@@ -39,7 +43,7 @@ void Texture::setupTexture(const std::string  file, int texture_width, int textu
 	glTexImage2D(GL_TEXTURE_2D, 0,
 		GL_RGBA, texture_width, texture_height,
 		0, GL_RGBA, GL_UNSIGNED_BYTE,
-		&texture_buffer[0]);
+		&pixels[0]);
 
 	glTexParameteri(GL_TEXTURE_2D,
 		GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -52,6 +56,12 @@ void Texture::setupTexture(const std::string  file, int texture_width, int textu
 
 	glTexParameteri(GL_TEXTURE_2D,
 		GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	// メモリ上の画像データを破棄
+	stbi_image_free(pixels);
+
+	// テクスチャの拘束を解除
+	glBindTexture(GL_TEXTURE_2D, 0);
 
 }
 

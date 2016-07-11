@@ -1,8 +1,8 @@
 #include "Clear.h"
 
 CClear::CClear():
-drawclear("res/raw/door/door0405_or2.raw",256,256),
-logo("res/raw/clearlogo.raw",1024,512),
+drawclear("res/png/door/door0405_or2.png",256,256),
+logo("res/png/clearlogo.png",1024,512),
 clearbgm("res/wav/tw036.wav")
 {
 	selected_clear = 0;

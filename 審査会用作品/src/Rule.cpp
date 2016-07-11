@@ -1,7 +1,7 @@
 #include "Rule.h"
 
 
-CRule::CRule() :rule01("res/raw/rule01.raw",1024,512)
+CRule::CRule() :rule01("res/png/rule01.png",1024,512)
 {
 	rule_draw = 0;
 }

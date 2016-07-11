@@ -2,8 +2,8 @@
 
 
 StartCount::StartCount():
-number("res/raw/sumi-11.raw",600,359),
-startlogo("res/raw/Start.raw",153,80)
+number("res/png/sumi-11.png",1024,512),
+startlogo("res/png/Start.png",153,80)
 {
 	count = 0;
 	time = 0;

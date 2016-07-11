@@ -2,9 +2,9 @@
 
 
 CGameOver::CGameOver()
-	:retry_or_title("res/raw/gameover.raw", 512, 256),
-drawover("res/raw/GameOvarBackground.raw",1024,1024),
-gameoverlogo("res/raw/gameoverlogo.raw",512,512),
+	:retry_or_title("res/png/gameover.png", 512, 256),
+drawover("res/png/GameOvarBackground.png",1024,1024),
+gameoverlogo("res/png/gameoverlogo.png",512,512),
 gameoverbgm("res/wav/gameover.wav")
 {
 	x = 0;

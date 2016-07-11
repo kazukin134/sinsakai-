@@ -4,9 +4,9 @@
 #include "Wall.h"
 
 CDistance::CDistance()
-:goal("res/raw/door/door111.raw",256,256),
-playerdistance("res/raw/hasiru.raw",512,512),
-walldistance("res/raw/obake02.raw",512,512)
+:goal("res/door/door111.png",256,256),
+playerdistance("res/png/hasiru.png",512,512),
+walldistance("res/png/obake02.png",512,512)
 {
 	x = -400.0;
 	y = 200.0;

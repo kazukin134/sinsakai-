@@ -3,11 +3,11 @@
 #include "Scene.h"
 
 CDoor::CDoor():
-door01("res/raw/door/door0801.raw",256,256) ,
-door02("res/raw/door/door0202_or2.raw",256,256) ,
-door03("res/raw/door/door0503_or2.raw",256,256) ,
-door04("res/raw/door/door0904_or2.raw",256,256) ,
-door05("res/raw/door/door0405_or2.raw",256,256) 
+door01("res/png/door/door0801.png",256,256) ,
+door02("res/png/door/door0202_or2.png",256,256) ,
+door03("res/png/door/door0503_or2.png",256,256) ,
+door04("res/png/door/door0904_or2.png",256,256) ,
+door05("res/png/door/door0405_or2.png",256,256) 
 //doorse("res/sei_ge_doa_kisimi02.wav")
 {
 	doorcount = 0;

@@ -3,7 +3,7 @@
 #include "GameMain.h"
 #include "Stage.h"
 
-CWall::CWall() :wall("res/raw/obake02.raw", 512, 512)
+CWall::CWall() :wall("res/png/obake02.png", 512, 512)
 {
 	x = -2500.0;
 	startY = 64;
@@ -16,7 +16,8 @@ CWall::CWall() :wall("res/raw/obake02.raw", 512, 512)
 	stage_x = x;
 	speed = 3.2f;
 	screenspeed = 1.5f;
-	movecount = 0;
+	movecount = 1;
+	disp_x = x - screenspeed * movecount;
 }
 
 CWall::~CWall(){}
