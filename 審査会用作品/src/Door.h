@@ -1,6 +1,6 @@
 #pragma once
 #include "lib\Texture.h"
-
+#include "lib\Audio.h"
 class CDoor
 {
 	Texture door01;
@@ -8,6 +8,7 @@ class CDoor
 	Texture door03;
 	Texture door04;
 	Texture door05;
+	Media doorse;
 
 public:
 	CDoor();

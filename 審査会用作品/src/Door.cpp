@@ -7,8 +7,8 @@ door01("res/png/door/door0801.png",256,256) ,
 door02("res/png/door/door0202_or2.png",256,256) ,
 door03("res/png/door/door0503_or2.png",256,256) ,
 door04("res/png/door/door0904_or2.png",256,256) ,
-door05("res/png/door/door0405_or2.png",256,256) 
-//doorse("res/sei_ge_doa_kisimi02.wav")
+door05("res/png/door/door0405_or2.png",256,256) ,
+doorse("res/wav/sei_ge_doa_kisimi02.wav")
 {
 	doorcount = 0;
 	doordrawcount = 20;
@@ -29,7 +29,7 @@ void CDoor::Update()
 	doorcount++;
 	if (doorcount >= 0 & doorcount < doordrawcount)
 	{
-		//doorse.play();
+		doorse.Play();
 		doorflag = 0;
 	}
 	else if (doorcount >= (doordrawcount)&& doorcount < (doordrawcount * 2))
@@ -46,7 +46,7 @@ void CDoor::Update()
 		selected_door = 1;
 		doorcount = 0;
 		doorflag = 0;
-		//doorse.stop();
+		doorse.Stop();
 	}
 		
 }
