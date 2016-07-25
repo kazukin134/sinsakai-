@@ -16,14 +16,10 @@ doorse("res/wav/sei_ge_doa_kisimi02.wav")
 	selected_door = 0;
 }
 
-CDoor::~CDoor()
-{
-
-}
+CDoor::~CDoor(){}
 
 void CDoor::Update()
 {
-
 
 	selected_door = 0;
 	doorcount++;

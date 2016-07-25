@@ -24,8 +24,6 @@ CGameOver::~CGameOver()
 
 }
 
-
-
 void CGameOver::Choice()
 {
 	switch (choice)
@@ -56,7 +54,6 @@ void CGameOver::Choice()
 			  choice_game = 50;
 			  if (IsPushKey(GLFW_KEY_UP) || IsPushKey(GLFW_KEY_DOWN))
 		{
-
 			choice = 0;
 		}
 		
@@ -79,7 +76,6 @@ void CGameOver::Update()
 		gameoverbgm.Looping(true);
 		gameoverbgm.Play();
 		gameoverbgm.Gain(0.05f);
-
 	}
 
 	Choice();

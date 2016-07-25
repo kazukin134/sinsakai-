@@ -44,7 +44,6 @@ void CPlayer::Move()
 	if (hitstate == HITSTATE::NORMAL || hitstate == HITSTATE::INVINCIBLE)
 	{
 		CGameMain::Stage->Scroll(true, x, speed);
-
 		movecount++;
 		movedistance = movecount * -speed;
 	}
@@ -80,7 +79,6 @@ void CPlayer::Move()
 	{
 		is_over = true;
 	}
-
 }
 
 void CPlayer::Jump()
@@ -161,7 +159,6 @@ void CPlayer::Collision()
 	{
 		hitstate = HITSTATE::HIT;
 	}
-
 }
 
 void CPlayer::HitStop()

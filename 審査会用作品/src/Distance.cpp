@@ -15,12 +15,7 @@ walldistance("res/png/obake02.png",512,512)
 
 }
 
-
-
-void CDistance::Update()
-{
-	
-}
+void CDistance::Update(){}
 
 void CDistance::Draw()
 {

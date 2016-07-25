@@ -18,10 +18,8 @@ CDistance *CGameMain::Distance;
 CFear *CGameMain::Fear;
 StartCount * CGameMain::startcount;
 
-
 CGameMain::CGameMain()
 {
-
 	Player = new CPlayer();
 	Door = new CDoor();
 	Enemy = new CEnemy();

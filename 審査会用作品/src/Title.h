@@ -12,6 +12,7 @@ class CTitle : public Object
 	Texture start;
 	Texture rule;
 	Texture end;
+	Texture menu_background;
 
 	Media titlebgm;
 	

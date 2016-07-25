@@ -44,8 +44,6 @@ void CScene::Update()
 	switch (scene)
 	{
 	case GAMEMAIN:
-
-
 		GameMain->Update();
 		if (CGameMain::Player->is_over == true)
 		{
@@ -58,15 +56,11 @@ void CScene::Update()
  			GameMain = new CGameMain();
 			scene = CLEAR;
 		}
-
-
 		break;
 	case GAMEOVER:
-	{
 			  bgmflag = 1;
 			  GameOver->selected_title = 0;
 			  GameOver->Update();
-
 			  if (CGameMain::Player->is_over == 0)
 			  {
 
@@ -79,10 +73,8 @@ void CScene::Update()
 			  {
 				  scene = TITLE;
 			  }
-	}
 		break;
 	case TITLE:
-	{
 			  Title->selected_game = 0;
 			  Title->Update();
 			  if (Title->selected_game == 1)
@@ -95,11 +87,8 @@ void CScene::Update()
 			  {
 				  scene = RULE;
 			  }
-
-	}
 		break;
 	case RULE:
-	{
 			  Title->selected_rule = 0;
 			  Rule->Update();
 
@@ -108,31 +97,23 @@ void CScene::Update()
 				  scene = TITLE;
 				  Rule->rule_draw = 0;
 			  }
-	}
 		break;
 	case DOOR:
-	{
 			  Door->Update();
-
-
 			  if (Door->selected_door == 1)
 			  {
 				  scene = CLEAR;
 			  }
-	}
 		break;
 	case CLEAR:
-	{
 			  Clear->Update();
 			  if (Clear->selected_clear == 1)
 			  {
 
 				  scene = TITLE;
 			  }
-	}
 		break;
 	}
-
 }
 
 void CScene::Draw()
@@ -143,7 +124,6 @@ void CScene::Draw()
 		GameMain->Draw();
 		break;
 	case GAMEOVER:
-
 		GameOver->Draw();
 		break;
 	case TITLE:

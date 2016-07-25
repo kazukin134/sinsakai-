@@ -42,7 +42,6 @@ public:
 
 	Scene scene;
 
-
 	static CGameOver *GameOver;
 	static CGameMain *GameMain;
 	static CTitle *Title;

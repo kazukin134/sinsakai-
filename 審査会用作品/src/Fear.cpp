@@ -21,8 +21,9 @@ CFear::~CFear(){}
 void CFear::Gauge()
 {
 	if (CGameMain::Player->hitfear == false)
+	{
 		fearflag = 0;
-	
+	}
 
 	if (feargauge <= 0)
 	{
