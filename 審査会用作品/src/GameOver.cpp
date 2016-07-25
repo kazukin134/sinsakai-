@@ -26,6 +26,14 @@ CGameOver::~CGameOver()
 
 void CGameOver::Choice()
 {
+
+	if (!(gameoverbgm.IsPlaying()))
+	{
+		gameoverbgm.Play();
+		gameoverbgm.Looping(true);
+		gameoverbgm.Gain(0.5f);
+	}
+
 	switch (choice)
 	{
 
@@ -71,12 +79,7 @@ void CGameOver::Choice()
 
 void CGameOver::Update()
 {
-	if (!(gameoverbgm.IsPlaying()))
-	{
-		gameoverbgm.Looping(true);
-		gameoverbgm.Play();
-		gameoverbgm.Gain(0.05f);
-	}
+
 
 	Choice();
 }

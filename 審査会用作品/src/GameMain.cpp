@@ -59,8 +59,8 @@ void CGameMain::Update()
 	{
 		startcount->Update();
 		if (startcount->GetTime() > 3){
-			Stage->Update();
 			Player->Update();
+			Stage->Update();
 			Enemy->Update();
 			Wall->Update();
 			Distance->Update();

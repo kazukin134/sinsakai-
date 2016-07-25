@@ -63,7 +63,6 @@ void CScene::Update()
 			  GameOver->Update();
 			  if (CGameMain::Player->is_over == 0)
 			  {
-
 				  scene = GAMEMAIN;
 				  delete GameMain;
 				  GameMain = new CGameMain();

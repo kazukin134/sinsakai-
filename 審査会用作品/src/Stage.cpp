@@ -67,22 +67,30 @@ void CStage::FallTrap()
 void CStage::Update()
 {
 	if (CGameMain::Player->is_over == false)
-	if (!standardbgm.IsPlaying())
 	{
-		standardbgm.Gain(0.5f);
-		standardbgm.Looping(true);
-		standardbgm.Play();		
-	}
-	
-	if (CGameMain::Player->hitstate == CPlayer::HITSTATE::HIT||CGameMain::Player->is_fall == true)
-	{
-		Scroll(false, scrollX, speed);
-	}
-	else
-	{
-		Scroll(true, scrollX, speed);
-	}
-	FallTrap();
+		if (!standardbgm.IsPlaying())
+		{
+			standardbgm.Gain(0.5f);
+			standardbgm.Looping(true);
+			standardbgm.Play();
+		}
+
+		if (CGameMain::Player->hitstate == CPlayer::HITSTATE::HIT || CGameMain::Player->is_fall == true)
+		{
+			Scroll(false, scrollX, speed);
+		}
+		else
+		{
+			Scroll(true, scrollX, speed);
+		}
+		FallTrap();
+	}else
+		if (CGameMain::Player->is_over == true)
+		{
+			standardbgm.Looping(false);
+			standardbgm.Stop();
+		}
+
 }
 
 void CStage::Draw()
@@ -100,7 +108,11 @@ void CStage::Draw()
 	if (CGameMain::Player->is_clear == true && wallbgm.IsPlaying())
 	{
 		wallbgm.Stop();
-	}
+	}else
+		if (CGameMain::Player->is_over == true && wallbgm.IsPlaying())
+		{
+			wallbgm.Stop();
+		}
 	stage.DrawTextureBox(-320, y, 800, 500, 0 + scrollX, 0, 560, 373, Color(1, 1, 1,1));
 	floor.DrawTextureBox(-320, -240, 800, 100, 0 + scrollX, 0, 1024, 128, Color(1, 1, 1,1));
 	door.DrawTextureBox(goalposition - scrollX, y + 64, 100, 150, 0, 0, 86, 226, Color(1, 1, 1, 1));

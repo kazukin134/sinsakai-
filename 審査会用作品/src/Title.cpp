@@ -21,6 +21,8 @@ titlebgm("res/wav/titleb.wav")
 	selected_rule = 0;
 	selected_end = 0;
 	titlecount = 0;
+	not_selected = 50;
+	now_select = 0;
 }
 
 CTitle::~CTitle(){}
@@ -62,22 +64,21 @@ void CTitle::Update()
 	{
 	case SELECTTITLE::GAME:
 	
-			  choice_game = 0;
-			  choice_rule = 50;
-			  choice_end = 50;
+			  choice_game = now_select;
+			  choice_rule = not_selected;
+			  choice_end = not_selected;
 
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
 				  selected_game = 1;
 			  }
-
 		break;
 
 	case SELECTTITLE::RULE:
 
-			  choice_game = 50;
-			  choice_rule = 0;
-			  choice_end = 50;
+			  choice_game = not_selected;
+			  choice_rule = now_select;
+			  choice_end = not_selected;
 
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
@@ -87,15 +88,14 @@ void CTitle::Update()
 
 	case SELECTTITLE::END:
 
-			  choice_game = 50;
-			  choice_rule = 50;
-			  choice_end = 0;
+			  choice_game = not_selected;
+			  choice_rule = not_selected;
+			  choice_end = now_select;
 
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
 				  selected_end = 1;
 			  }
-
 		break;
 	}
 
@@ -122,7 +122,7 @@ void CTitle::Draw()
 	menu_background.DrawTextureBox(x + choice_game, y, 100, 60,0,0,153,80, Color(1, 1, 1,1));
 	start.DrawTextureBox(x + choice_game, y, 100, 60, 0, 0, 153, 80, Color(1, 0.4, 0,1));
 	menu_background.DrawTextureBox(x + choice_rule, y-70, 150, 60, 0, 0, 153, 80, Color(1, 1, 1, 1));
-	rule.DrawTextureBox(x + choice_rule, y - 70, 150, 60, 0, 0, 266, 80, Color(0, 0, 1, 1));
+	rule.DrawTextureBox(x + choice_rule, y - 70, 150, 60, 0, 0, 266, 80, Color(0, 1, 1, 1));
 	menu_background.DrawTextureBox(x + choice_end, y-140, 100, 60, 0, 0, 153, 80, Color(1, 1, 1, 1));
 	end.DrawTextureBox(x + choice_end, y - 140, 100, 60, 0, 0, 116, 80, Color(0, 1, 0.5, 1));
 }

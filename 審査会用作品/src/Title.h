@@ -35,5 +35,7 @@ public:
 	float selected_game;
 	float selected_rule;
 	float selected_end;
+	float not_selected;
+	float now_select;
 
 };

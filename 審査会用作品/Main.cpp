@@ -41,23 +41,23 @@ public:
 	}
 };
 
-float window_width = 640;
-float window_height = 480;
+int window_width = 640;
+int window_height = 480;
 
 
 void ChangeWindowSize3D(GLFWwindow * window, const int width, const int height)
 {
-	glViewport(0.0f, 0.0f, width, height);
+	glViewport(0, 0, width, height);
 
-	window_width = (float)width;
-	window_height = (float)height;
+	window_width = width;
+	window_height = height;
 
 }
 
 int main()
 {
 	DbgStreambuf dbg_stream;
-	std::streambuf* stream;
+	//std::streambuf* stream;
 	GLFWwindow* window;
 
 	/* Initialize the library */

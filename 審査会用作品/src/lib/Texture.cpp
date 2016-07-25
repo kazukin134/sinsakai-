@@ -20,17 +20,6 @@ void Texture::setupTexture(const std::string&  file, int texture_width, int text
 	get_texture_width = texture_width;
 	get_texture_height = texture_height;
 
-	//std::ifstream fstr(file, std::ios::binary);
-	//if (!fstr)return;
-
-	//const size_t file_size
-	//	= static_cast<size_t>(fstr.seekg(0, fstr.end).tellg());
-	//fstr.seekg(0, fstr.beg);
-
-	//std::vector<char> texture_buffer(file_size);
-
-	//fstr.read(&texture_buffer[0], file_size);
-
 	unsigned char* pixels;
 	int bpp;
 
