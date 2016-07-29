@@ -4,7 +4,7 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-Texture::Texture(const std::string&  file, int texture_width, int texture_height)
+Texture::Texture(const std::string&  file,const int texture_width,const int texture_height)
 {
 	glGenTextures(1, &texture_id);
 	setupTexture(file, texture_width, texture_height);
@@ -24,7 +24,7 @@ void Texture::setupTexture(const std::string&  file, int texture_width, int text
 	int bpp;
 
 	// ファイルを読み込み、画像データを取り出す
-	pixels = stbi_load(file.c_str(), &texture_width, &texture_height, &bpp, 4);
+	pixels = stbi_load(file.c_str(), &  texture_width, &texture_height, &bpp, 4);
 
 
 	glBindTexture(GL_TEXTURE_2D, texture_id);
@@ -90,6 +90,8 @@ void Texture::DrawTextureBox(const float x, const float y,const float width, con
 
 	glEnable(GL_TEXTURE_2D);
 	bind();
+
+
 
 	glEnableClientState(GL_VERTEX_ARRAY);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);

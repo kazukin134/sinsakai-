@@ -159,12 +159,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
     <ClCompile Include="src\Clear.cpp" />
     <ClCompile Include="src\Collision.cpp" />
     <ClCompile Include="src\Distance.cpp" />
     <ClCompile Include="src\Door.cpp" />
     <ClCompile Include="src\Enemy.cpp" />
+    <ClCompile Include="src\FadeOut.cpp" />
     <ClCompile Include="src\Fear.cpp" />
     <ClCompile Include="src\GameMain.cpp" />
     <ClCompile Include="src\GameOver.cpp" />
@@ -175,6 +175,7 @@
     <ClCompile Include="src\lib\Matrix.cpp" />
     <ClCompile Include="src\lib\Texture.cpp" />
     <ClCompile Include="src\lib\wav.cpp" />
+    <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\Prologue.cpp" />
     <ClCompile Include="src\Rule.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="src\Distance.h" />
     <ClInclude Include="src\Door.h" />
     <ClInclude Include="src\Enemy.h" />
+    <ClInclude Include="src\FadeOut.h" />
     <ClInclude Include="src\Fear.h" />
     <ClInclude Include="src\GameMain.h" />
     <ClInclude Include="src\GameOver.h" />
@@ -202,6 +204,7 @@
     <ClInclude Include="src\lib\stb_image.h" />
     <ClInclude Include="src\lib\Texture.h" />
     <ClInclude Include="src\lib\wav.hpp" />
+    <ClInclude Include="src\lib\WindowSize.h" />
     <ClInclude Include="src\Object.h" />
     <ClInclude Include="src\Player.h" />
     <ClInclude Include="src\Prologue.h" />

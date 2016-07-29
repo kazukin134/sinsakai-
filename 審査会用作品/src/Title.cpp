@@ -125,4 +125,9 @@ void CTitle::Draw()
 	rule.DrawTextureBox(x + choice_rule, y - 70, 150, 60, 0, 0, 266, 80, Color(0, 1, 1, 1));
 	menu_background.DrawTextureBox(x + choice_end, y-140, 100, 60, 0, 0, 153, 80, Color(1, 1, 1, 1));
 	end.DrawTextureBox(x + choice_end, y - 140, 100, 60, 0, 0, 116, 80, Color(0, 1, 0.5, 1));
+
+		
+		//fadeinorout.FadeIn(0.05f);
+		//selected_game = 1;
+
 }

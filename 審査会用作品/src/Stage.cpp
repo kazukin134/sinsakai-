@@ -19,35 +19,35 @@ wallbgm("res/wav/wall.wav")
 	height = 100;
 	velocity_x = 0;
 	velocity_y = 0;
-	scrollX = 0.0f;
+	scroll_x = 0.0f;
 	stage_x = 0.0f;
-	startX = 600;
+	start_x = 600;
 	speed = 3.2;
 	fallx = 0;
 	seflag = 0;
 	goalposition = 3300;
-	fallx = stage_x - scrollX + startX;
+	fallx = stage_x - scroll_x + start_x;
 }
 
 CStage::~CStage()
 {
 }
 
-void CStage::Scroll(bool is_scroll, float &scrollX, float speed)
+void CStage::Scroll(bool is_scroll, float &scroll_x, float speed)
 {
 
 	if (is_scroll == true)
 	{
 		velocity_x = speed;
 
-			scrollX += velocity_x;
+			scroll_x += velocity_x;
 	}
 
 }
 
 void CStage::FallTrap()
 {
-	fallx = stage_x - scrollX + startX;
+	fallx = stage_x - scroll_x + start_x;
 	fall[0] = fallx ;
 	fall[1] = fallx + 700;
 	fall[2] = fallx + 3000;
@@ -77,11 +77,11 @@ void CStage::Update()
 
 		if (CGameMain::Player->hitstate == CPlayer::HITSTATE::HIT || CGameMain::Player->is_fall == true)
 		{
-			Scroll(false, scrollX, speed);
+			Scroll(false, scroll_x, speed);
 		}
 		else
 		{
-			Scroll(true, scrollX, speed);
+			Scroll(true, scroll_x, speed);
 		}
 		FallTrap();
 	}else
@@ -113,9 +113,9 @@ void CStage::Draw()
 		{
 			wallbgm.Stop();
 		}
-	stage.DrawTextureBox(-320, y, 800, 500, 0 + scrollX, 0, 560, 373, Color(1, 1, 1,1));
-	floor.DrawTextureBox(-320, -240, 800, 100, 0 + scrollX, 0, 1024, 128, Color(1, 1, 1,1));
-	door.DrawTextureBox(goalposition - scrollX, y + 64, 100, 150, 0, 0, 86, 226, Color(1, 1, 1, 1));
+	stage.DrawTextureBox(-320, y, 800, 500, 0 + scroll_x, 0, 560, 373, Color(1, 1, 1,1));
+	floor.DrawTextureBox(-320, -240, 800, 100, 0 + scroll_x, 0, 1024, 128, Color(1, 1, 1,1));
+	door.DrawTextureBox(goalposition - scroll_x, y + 64, 100, 150, 0, 0, 86, 226, Color(1, 1, 1, 1));
 	for (int i = 0; i < fall_number; i++)
 	{			
 		drawfall.DrawTextureBox(fall[i], y, width, height, 113, 400, 778, 431, Color(1, 1, 1,1));

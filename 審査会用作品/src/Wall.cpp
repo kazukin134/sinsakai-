@@ -6,13 +6,13 @@
 CWall::CWall() :wall("res/png/obake02.png", 512, 512)
 {
 	x = -2500.0;
-	startY = 64;
-	y = 0;//-Window::HEIGHT / 2 + startY;
+	start_y = 64;
+	y = 0;//-Window::HEIGHT / 2 + start_y;
 	width = 300;
 	height = 500;
 	velocity_x = 0;
 	velocity_y = 0;
-	scrollX = x;
+	scroll_x = x;
 	stage_x = x;
 	speed = 3.2f;
 	screenspeed = 1.5f;
@@ -26,15 +26,15 @@ void CWall::Move()
 {
 	movecount++;
 
-	if (scrollX > 0)
+	if (scroll_x > 0)
 	{
-		scrollX += x;
-		scrollX += velocity_x;
+		scroll_x += x;
+		scroll_x += velocity_x;
 	}
 
 	velocity_x = speed;
 
-	if (scrollX < 0)
+	if (scroll_x < 0)
 	{
 		x += velocity_x;
 	}

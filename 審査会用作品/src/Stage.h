@@ -19,7 +19,7 @@ public:
 	CStage();
 	~CStage();
 	
-	void Scroll(bool is_scroll, float &scrollX, float speed);
+	void Scroll(bool is_scroll, float &scroll_x, float speed);
 	void Draw();
 	void Update();
 	void FallTrap();

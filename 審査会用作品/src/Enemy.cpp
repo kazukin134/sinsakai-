@@ -8,13 +8,13 @@
 CEnemy::CEnemy() : enemy01("res/png/obake.png",512,512)
 {
 	x = 500.0;
-	startY = 0;
+	start_y = 0;
 	y =  -240;
 	width = 50;
 	height = 50;
 	velocity_x = 0;
 	velocity_y = 0;
-	scrollX = x;
+	scroll_x = x;
 	stage_x = this->x;
 	speed = 3.2;
 	startscroll = 0;
@@ -51,13 +51,13 @@ void CEnemy::Move()
 	{
 		if (startscroll == 0)
 		{  
-			scrollX += x;
-			scrollX -= velocity_x;
+			scroll_x += x;
+			scroll_x -= velocity_x;
 			startscroll = 1;
 		}
 
 		velocity_x = speed;
-		if (scrollX > 0)
+		if (scroll_x > 0)
 		{
 			x -= velocity_x;
 		}

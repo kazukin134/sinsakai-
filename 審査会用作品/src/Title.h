@@ -4,6 +4,7 @@
 #include "lib\DrawBox.h"
 #include "lib\Audio.h"
 #include "lib\Texture.h"
+#include "FadeOut.h"
 
 class CTitle : public Object
 {
@@ -22,6 +23,8 @@ class CTitle : public Object
 		RULE,
 		END,
 	};
+
+	FadeInOrOut fadeinorout;
 
 public:
 	CTitle();
