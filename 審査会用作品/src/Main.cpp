@@ -56,8 +56,8 @@ int main()
 	GLFWwindow* window;
 	WindowSize windowsize;
 
-	int window_width = windowsize.GetWindowWidth();
-	int window_height = windowsize.GetWindowHeight();
+	int window_width = windowsize.GetWindowGetWidth();
+	int window_height = windowsize.GetWindowGetHeight();
 
 	/* Initialize the library */
 	if (!glfwInit())

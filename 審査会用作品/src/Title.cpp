@@ -23,6 +23,7 @@ titlebgm("res/wav/titleb.wav")
 	titlecount = 0;
 	not_selected = 50;
 	now_select = 0;
+	is_fade_change = false;
 }
 
 CTitle::~CTitle(){}
@@ -71,6 +72,7 @@ void CTitle::Update()
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
 				  selected_game = 1;
+				  is_fade_change = true;
 			  }
 		break;
 
@@ -83,6 +85,7 @@ void CTitle::Update()
 			  if (IsPushKey(GLFW_KEY_ENTER))
 			  {
 				  selected_rule = 1;
+				  is_fade_change = true;
 			  }
 		break;
 
@@ -126,8 +129,9 @@ void CTitle::Draw()
 	menu_background.DrawTextureBox(x + choice_end, y-140, 100, 60, 0, 0, 153, 80, Color(1, 1, 1, 1));
 	end.DrawTextureBox(x + choice_end, y - 140, 100, 60, 0, 0, 116, 80, Color(0, 1, 0.5, 1));
 
-		
-		//fadeinorout.FadeIn(0.05f);
-		//selected_game = 1;
+	if (is_fade_change)
+	{
+		fadeinorout.FadeOut(0.05f, is_fade_change);
+	}
 
 }

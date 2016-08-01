@@ -26,6 +26,8 @@ class CTitle : public Object
 
 	FadeInOrOut fadeinorout;
 
+	bool is_fade_change;
+
 public:
 	CTitle();
 	~CTitle();

@@ -8,21 +8,24 @@
 
 class WindowSize
 {
+	//windowサイズ
 	int window_width = 640;
 	int window_height = 480;
 
 public:
 
-	int GetWindowWidth()
+	//windowのサイズを取れるようにした
+	int GetWindowGetWidth()
 	{
 		return window_width;
 	}
 
-	int GetWindowHeight()
+	int GetWindowGetHeight()
 	{
 		return window_height;
 	}
 
+	//windowのサイズを変更できるようにした
 	void SetWindowWidth(int new_window_width)
 	{
 		window_width = new_window_width;

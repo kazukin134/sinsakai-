@@ -18,8 +18,8 @@
 		~FadeInOrOut();
 
 
-		void FadeIn(float change_speed);
-		void FadeOut(float change_speed);
+		void FadeIn(float change_speed,bool& is_fade_in);
+		void FadeOut(float change_speed, bool& is_fade_out);
 
 
 	};

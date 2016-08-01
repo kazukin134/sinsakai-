@@ -5,12 +5,12 @@ enum Mouse {
 	RIGHT = GLFW_MOUSE_BUTTON_RIGHT,
 };
 
-
 Input::Input()
 {
 	pullcheck = false;
 }
 
+//ボタン離した時
 bool Input::PullMouseButton(GLFWwindow* window, int button)
 {
 	bool pullmouse = false;
@@ -33,12 +33,14 @@ bool Input::PullMouseButton(GLFWwindow* window, int button)
 	return false;
 }
 
+//ボタン押し続けてる時
 bool Input::PressMouseButton(GLFWwindow* window, int button)
 {
 	if (glfwGetMouseButton(window, button) == 0)return false;
 	return true;
 }
 
+//ボタン押した時
 bool Input::PushMouseButton(GLFWwindow* window, int button)
 {
 	bool pullmouse = false;
